@@ -10,7 +10,11 @@ s <- castaways  %>%
   group_by(full_name) %>% 
   mutate(appearance=row_number(),
          returning=if_else(appearance>1, 1, 0)) %>% # how many appearances, if they were a returning player that season
-  ungroup()
+  ungroup() %>% 
+  mutate(jury=as.numeric(!is.na(jury_status)), 
+         ftc=as.numeric(result %in%
+           c("Sole Survivor","Runner-up","2nd runner-up","Co-runner-up","2nd Runner-up")),
+         .after=jury_status)
 
 # Identify "unusual" non-returns, 
 # i.e. in a returning player season, original tribes have 100% 
