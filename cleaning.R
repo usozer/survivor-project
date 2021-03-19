@@ -36,6 +36,4 @@ s %>%
   select(sid, full_name, castaway, age, day, order, result, 
          original_tribe, immunity_idols_won, returning, appearance)
 
-vh <- vote_history
-
-
+vh <- clean_votes(vote_history)
