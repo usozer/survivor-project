@@ -1,5 +1,6 @@
 library(tidyverse)
 library(survivoR)
+library(lubridate)
 library(usedist)
 
 source("cleaning.R")
@@ -15,8 +16,6 @@ df <- s %>%
   ungroup()
 
 ################################################################################
-
-# Were they on the right side of the vote?
 
 getSeasonSummary <- function(seasonno) {
   vh %>% 
@@ -64,9 +63,9 @@ p <- p[,-1]
 distmat <- dist_make(p, distance_fcn = function(v1, v2) {sum(as.numeric(v1 == v2), na.rm=T)/sum(!is.na(v1==v2))})
 jury <- df %>% filter(season==seasonno, jury==1) %>% pull(castaway)
 final <- df %>% filter(season==seasonno, ftc==1) %>% pull(castaway)
-####
 
 finalists$jury_simil[91:93] = as.numeric(rowMeans(as.matrix(distmat)[final,jury[-1]], na.rm=TRUE))
+####
 
 
 clean_votes(vh) %>% 
@@ -92,12 +91,16 @@ votes <- clean_votes(vh) %>%
   group_by(season, castaway) %>% 
   summarise(rightside=sum(matched)/n())
 
+finalists <- as_tibble(finalists)
+
 finalists <- left_join(finalists, jurycomp, by=c("season", "original_tribe")) %>% 
   select(-number) %>% 
   rename(prevtribe_jury = perc) %>% 
   left_join(votes, by=c("season", "castaway")) %>% 
   left_join(select(season_summary, season, filming_ended), by="season") %>% 
   rename(tribaldate = filming_ended)
+
+finalists$prevtribe_jury <- replace_na(finalists$prevtribe_jury, 0)
 
 View(finalists)
 
