@@ -6,9 +6,26 @@ library(randomForest)
 
 source("fns.R")
 
+
+generateWinner <- function(seasonno, fit, type) {
+  p<- df_norm %>% 
+    filter(season == seasonno) %>% 
+    mutate(f = predict(fit, ., type)) %>% 
+    mutate(predicted= as.numeric(f==max(f)))
+  
+  return(pull(p, predicted))
+}
+
+
+# Neural network
+
+df_norm$winner <- factor(df_norm$winner)
+
+nodes=1:3
+lambdas=3^(-5:2)
 Nrep <- 1
 K<-40  #K-fold CV on each replicate
-n.models = 5 #number of different models to fit
+n.models = length(nodes)*length(lambdas) #number of different models to fit
 n=40
 y=df_norm$winner
 yhat=matrix(0,nrow(df_norm),n.models)
@@ -19,59 +36,92 @@ for (k in 1:K) {
   train <- df_norm[train_ind,-(1:3)]
   test_ind <- filter(df_norm, season == k) %>% pull(sid)
   
-  out
-  yhat[test_ind,1] <- generateWinner(k, out)
-  
-  out
-  yhat[test_ind,2] <- generateWinner(k, out)
-  
-  out
-  yhat[test_ind,3] <- generateWinner(k, out)
-  
-  out
-  yhat[test_ind,4] <- generateWinner(k, out)
-  
-  out <- glm(winner~., 
-             family=binomial, 
-             data=train)
-  yhat[test_ind,5] <- generateWinner(k, out)
+  cur <- 1
+  for (node in nodes) {
+    for (lambda in lambdas) {
+      out <- nnet(winner~., size=node, data=train, linout=F, maxit=1000, decay=lambda, skip=FALSE, trace=FALSE)
+      yhat[test_ind,cur] <- generateWinner(k, out, type="raw")
+      cur <- cur + 1
+    }
+  }
 } #end of k loop
-  misclass[1,]=apply(yhat,2,function(x) sum(x != y)/length(x))
+
+misclass[1,]=apply(yhat,2,function(x) sum(x != y)/length(x))
  #end of j loop
 
-misclass
-
-
-
-generateWinner <- function(seasonno, fit, type="response") {
-  p<- df_norm %>% 
-    filter(season == seasonno) %>% 
-    mutate(f = predict(winner_log, ., type)) %>% 
-    mutate(winnerpred = f/sum(f),
-           predicted= as.numeric(winnerpred==max(winnerpred)))
-  
-  return(pull(p, predicted))
-}
-
-
-
-
-
-
-
-
-# Correct prediction rate
-sum(finalists[finalists$result == "Sole Survivor","predicted"])/40
-
-
+matrix(c(misclass), nrow=length(nodes), 
+                    ncol=length(lambdas), 
+                    byrow=TRUE, 
+                    dimnames = list(paste(nodes,"nodes"),
+                                    paste(round(lambdas,3))))
 
 
 # Descriptive stats
 # Mean of majority vote
 # Mean of prevtribe_jury (less than 50% means what?)
 
+#
+#
+#
+
+# Boosted tree
 
 
+
+
+
+
+df_norm$winner <- factor(df_norm$winner)
+
+nodes=1:10
+lambdas=3^(-5:2)
+Nrep <- 1
+K<-40  #K-fold CV on each replicate
+n.models = length(nodes)*length(lambdas) #number of different models to fit
+n=40
+y=df_norm$winner
+yhat=matrix(0,nrow(df_norm),n.models)
+misclass<-matrix(0,Nrep,n.models)
+
+for (k in 1:K) {
+  train_ind <- filter(df_norm, season != k) %>% pull(sid)
+  train <- df_norm[train_ind,-(1:3)]
+  test_ind <- filter(df_norm, season == k) %>% pull(sid)
+  
+  cur <- 1
+  for (node in nodes) {
+    for (lambda in lambdas) {
+      out<- gbm(winner~., data=train, var.monotone=NULL, 
+                                      distribution="gaussian", 
+                                      n.trees=10000, 
+                                      shrinkage=lambdas, 
+                                      interaction.depth=2, 
+                                      bag.fraction = .5, 
+                                      n.minobsinnode = nodes,
+                                      verbose=FALSE)
+      yhat[test_ind,cur] <- generateWinner(k, out, type="response")
+      cur <- cur + 1
+    }
+  }
+} #end of k loop
+
+misclass[1,]=apply(yhat,2,function(x) sum(x != y)/length(x))
+#end of j loop
+
+matrix(c(misclass), nrow=length(nodes), 
+       ncol=length(lambdas), 
+       byrow=TRUE, 
+       dimnames = list(paste(nodes,"nodes"),
+                       paste(round(lambdas,3))))
+
+
+
+
+#
+#
+#
+#
+#
 finalists <- as_tibble(finalists)
 
 finalists %>% 
