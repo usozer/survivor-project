@@ -27,17 +27,14 @@ s %>%
   filter(perc !=1) 
 
 s %>% 
-  select(sid, season, full_name, castaway, day, 
-         order, result, original_tribe, returning, appearance) %>% 
+  select(sid, season, full_name, castaway, day,
+         order, result, original_tribe, returning, appearance) %>%
   filter(original_tribe %in% c("Galang", "Malakal", "Dakal"))
 
+# Manually fix 4 returning castaways with name changes
 s[258,20:21] = list(2,1)
 s[464,20:21] = list(3,1)
 s[712,20:21] = list(3,1)
 s[723,20:21] = list(2,1)
-
-s %>% 
-  select(sid, full_name, castaway, age, day, order, result, 
-         original_tribe, immunity_idols_won, returning, appearance)
 
 vh <- clean_votes(vote_history)
