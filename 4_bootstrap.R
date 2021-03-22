@@ -8,7 +8,7 @@ no.reps <- 1000
 yhat=matrix(0,105,no.reps)
 
 progress <- 0
-bar <- txtProgressBar(min=0, max=40000, style=3)
+bar <- txtProgressBar(min=0, max=400000, style=3)
 for (k in 1:40) {
   test_ind <- filter(df_norm, season == k) %>% pull(sid)
   
@@ -28,3 +28,9 @@ for (k in 1:40) {
   
 } #end of k loop
 
+df_norm %>% 
+     select(season, castaway, winner) %>% 
+     mutate(prob=rowSums(yhat)/100) %>% 
+     write_csv("finaloutputs.csv")
+
+write_csv(as.data.frame(yhat), "../yhats.csv")
