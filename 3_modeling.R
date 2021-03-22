@@ -4,8 +4,8 @@ library(gbm)
 library(nnet)
 library(randomForest)
 
-setwd("~/survivor-project")
-source("fns_normalized.R")
+setwd("~/SurvivorPred")
+source("2-1_fns_normalized.R")
 
 
 generateWinner <- function(seasonno, fit, type, ...) {
@@ -22,8 +22,8 @@ generateWinner <- function(seasonno, fit, type, ...) {
 
 df_norm$winner <- factor(df_norm$winner)
 
-nodes=(1:3)[1]
-lambdas=(3^(-5:2))[5]
+nodes=(1:3)
+lambdas=(3^(-5:2))
 Nrep <- 1
 K<-40  #K-fold CV on each replicate
 n.models = length(nodes)*length(lambdas) #number of different models to fit
@@ -79,7 +79,7 @@ y=df_norm$winner
 yhat=matrix(0,nrow(df_norm),n.models)
 misclass<-matrix(0,Nrep,n.models)
 
-for (k in 18:K) {
+for (k in 1:K) {
   train_ind <- filter(df_norm, season != k) %>% pull(sid)
   train <- df_norm[train_ind,-(1:3)]
   test_ind <- filter(df_norm, season == k) %>% pull(sid)
@@ -114,7 +114,7 @@ matrix(c(misclass), nrow=length(nodes),
 
 
 ############################################################
-
+set.seed(123)
 yhat=matrix(0,nrow(df_norm),1)
 
 for (k in 1:40) {
@@ -122,13 +122,12 @@ for (k in 1:40) {
   train <- df_norm[train_ind,-(1:3)]
   test_ind <- filter(df_norm, season == k) %>% pull(sid)
   
-  out <- nnet(winner~., size=3, data=train, linout=F, maxit=1000, decay=0.111, skip=FALSE, trace=FALSE)
+  out <- nnet(winner~., size=2, data=train, linout=F, maxit=1000, decay=0.037, skip=FALSE, trace=FALSE)
   yhat[test_ind,1] <- generateWinner(k, out, type="raw")
 } #end of k loop
 
-df_norm %>% 
-  mutate(predicted=c(yhat)) %>% 
-  filter(winner == 1 & predicted == 0)
+df_norm <- df_norm %>% 
+  mutate(predicted=c(yhat))
 
 
 #############################################################
@@ -150,7 +149,7 @@ for (k in 1:40) {
     for (a in seasons) train <- rbind(train, filter(df_norm, season==a))
     train <- train[,4:11]
     
-    out <- nnet(winner~., size=1, data=train, linout=F, maxit=1000, decay=1/3, skip=FALSE, trace=FALSE)
+    out <- nnet(winner~., size=2, data=train, linout=F, maxit=1000, decay=0.037, skip=FALSE, trace=FALSE)
     yhat[test_ind,i] <- generateWinner(k, out, type="raw")
     
     progress <- progress+1
@@ -170,6 +169,35 @@ sum(c==1 & y==1)
 
 
 ##############################################################
+
+# Logistic regression
+
+train$winner <- as.numeric(train$winner)-1
+
+Nrep <- 1
+K<-40  #K-fold CV on each replicate
+n.models = 1 #number of different models to fit
+n=40
+y=df_norm$winner
+yhat=matrix(0,nrow(df_norm),n.models)
+misclass<-matrix(0,Nrep,n.models)
+
+for (k in 1:K) {
+  train_ind <- filter(df_norm, season != k) %>% pull(sid)
+  train <- df_norm[train_ind,-(1:3)]
+  test_ind <- filter(df_norm, season == k) %>% pull(sid)
+  
+  out <- glm(factor(winner)~., data=train, family=binomial)
+  yhat[test_ind,1] <- generateWinner(k, out, type="response")
+} #end of k loop
+
+misclass[1,]=apply(yhat,2,function(x) sum(x != y)/length(x)); misclass
+
+##############################################################
+
+#k-nn
+
+
 
 # 
 # #
