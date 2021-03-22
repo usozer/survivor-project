@@ -1,3 +1,5 @@
+devtools::install_github("doehm/survivoR")
+
 library(tidyverse)
 library(survivoR)
 
