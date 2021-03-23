@@ -9,9 +9,13 @@ output: pdf_document
 knitr::opts_chunk$set(eval=FALSE, echo = TRUE)
 library(survivoR)
 library(tidyverse)
+library(gridExtra)
 
-df <- read_csv("df.csv")
+source("2-1_fns_normalized.R")
+source("5_clustering.R")
 ```
+
+![](images/titlepic.jpg)
 
 # Motivation
 
@@ -58,31 +62,46 @@ df %>%
 
 ### Derived features
 
+* *Original tribe representation* (`prevtribe_jury`): These feature looks at the importance of day 1 bonds; it is the percentage of jury members who were in the same tribe as the finalist.
 
+Next two features were designed in my interest to somehow incorporate finalists' voting histories in the model. `survivoR` package also has a voting history table, through which I was able to extract a matrix of "vote vectors" for each jury member and finalist per each season. 
+
+Here is what I had for season 6: The Amazon.
+
+```{r, echo=TRUE, eval=TRUE, include=TRUE}
+p[final,8:14]
+```
+
+```{r, echo=TRUE, eval=TRUE, include=TRUE}
+p[jury,8:14]
+```
+
+* *Jury similarity index* (`jury_simil`): This variable quantifies how similar the finalist voted compared to the jury members. The idea is that if the similarity index is high, that means the finalist was likely in alliances with the jury members or simply aligning interests with them. How does clashing or matching voting histories affect jury's decision? In calculation, `jury_simil` is the average Jaccard index between a finalist and each jury member.
+
+* *Majority vote percentage* (`majorityvote`): The idea for this variable came from the final trouble council at Season 33 when a finalist was asked by a jury member how many times she was a part of the majority vote. How I interpret this is that if your vote belonged to the majority's most of the time, then you likely had a good grasp of the game, command over tribe mates and successful alliance management. How does the jury value being the dominant force vs. the underdog?
 
 # III. Modeling
 
-```{r, include=TRUE}
-library(gbm)
+All statistical learning models were selected and tuned through *n*-fold cross validation. Here was the algorithm: The model is trained on finalists from all seasons but one. The predicted probabilities of winning for the left-out season finalists are obtained from the trained model, and the person with the highest probability in the final 2 or final 3 is declared the winner. 
 
-gbm(winner~., data=train, distribution = "bernoulli",
-                          n.trees=1000, 
-                          shrinkage=0.111, 
-                          interaction.depth=2, 
-                          bag.fraction = .5, 
-                          n.minobsinnode = 2,
-                          cv.folds=10)
+```
+distribution = "bernoulli",
+n.trees=1000, 
+shrinkage=0.111, 
+interaction.depth=2, 
+bag.fraction = .5, 
+n.minobsinnode = 2,
+cv.folds=10
 ```
 
 
-
-```{r, include=TRUE}
-library(nnet)
-
-nnet(winner~., data=train, size=2, decay=0.037, linout=F, 
-                           maxit=1000, skip=FALSE)
 ```
-
+size=2
+decay=0.037
+linout=FALSE
+maxit=1000
+skip=FALSE
+```
 
 # IV. Clustering
 
@@ -90,7 +109,62 @@ Just for the fun of it, since I have all this normalized data now, I decided to 
 
 K-means clustering gave solutions that maximized the F-score at $K=4$.
 
+```{r eval=TRUE, echo=FALSE}
+mat <- df_norm %>% 
+  select(age, necklaces, appearance, 
+         jury_simil, prevtribe_jury, majorityvote) %>% 
+  as.matrix()
 
+kfit <- kmeans(mat, 4, nstart=100, iter.max = 100) 
+
+plot.kmeans(kfit)
+```
+
+As I made the warning previously, these interpretations will be heavily colored by my personal opinions, but here is how I see it.
+
+1. This is a cluster of young finalists who came to the final collecting tons of individual immunities. Example: Kelly from Borneo, Fabio from Nicaragua
+
+2. These finalists were probably in the majority most of their time and as a result, voted very much like the jury members who were probably in the finalist's alliance. Example: Amanda & Parvati from Micronesia, Rob from Redemption Island
+
+3. Older returning players who made tons of big moves against the majority and voted against most of the jury members. Example: Russell & Parvati from Heroes v Villains
+
+4. Players who didn't win many individual immunities and relied on their alliances to carry them through. Example: Courtney from China, Sandra from Pearl Islands
+
+```{r, eval=TRUE, echo=FALSE}
+df_norm %>% 
+  mutate(cluster = kfit$cluster,
+         winner=as.numeric(winner)) %>% 
+  group_by(cluster) %>% 
+  summarise(winrate=sum(winner)/n())
+```
+
+Surprisingly, or unsurprisingly, real life data says cluster 1 and 4 became more successful in their quest. I'll leave the interpretation to other Survivor fans.
+
+Just to test the validity of my solution, I did dimensionality reduction through PCA, plotted the PC-scores and individually colored the clusters.
+
+```{r, eval=TRUE, echo=FALSE}
+par(mfrow=c(1,2))
+
+grid.arrange(df_norm %>% 
+  mutate(PC1 = factors$scores[,1],
+         PC2 = factors$scores[,2],
+         PC3 = factors$scores[,3],
+         cluster = factor(kfit$cluster)) %>% 
+  ggplot(aes(x=PC1, y=PC2)) + geom_point(aes(color=cluster)) +
+                                           theme(legend.position = "none"),
+
+df_norm %>% 
+  mutate(PC1 = factors$scores[,1],
+         PC2 = factors$scores[,2],
+         PC3 = factors$scores[,3],
+         cluster = factor(kfit$cluster)) %>% 
+  ggplot(aes(x=PC3, y=PC2)) + geom_point(aes(color=cluster)) +
+  theme(legend.position = "none"),
+
+ncol=2)
+```
+
+This is kind of like looking at two different sides of a cube. The clusters are not very immediate, but they served their explanatory purpose for now.
 
 # V. Bootstrap estimates
 

@@ -86,7 +86,7 @@ jurycomp <- s %>%
   mutate(perc = number/sum(number)) %>%
   ungroup()
 
-votes <- clean_votes(vh) %>% 
+votes <- clean_votes(vh) %>%
   mutate(matched = as.numeric(vote==voted_out)) %>% 
   group_by(season, castaway) %>% 
   summarise(rightside=sum(matched)/n())
@@ -102,6 +102,6 @@ finalists <- left_join(finalists, jurycomp, by=c("season", "original_tribe")) %>
 
 finalists$prevtribe_jury <- replace_na(finalists$prevtribe_jury, 0)
 
-View(finalists)
+
 
 

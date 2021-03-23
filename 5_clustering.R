@@ -2,10 +2,9 @@ library(cluster)
 
 source("2-1_fns_normalized.R")
 
-df_norm
-
 mat <- df_norm %>% 
-  select(age, necklaces, appearance, jury_simil, prevtribe_jury, majorityvote) %>% 
+  select(age, necklaces, appearance, 
+         jury_simil, prevtribe_jury, majorityvote) %>% 
   as.matrix()
 
 
@@ -35,7 +34,23 @@ summary.kmeans(kfit)
 
 df_norm %>% 
   mutate(cluster = kfit$cluster,
-         winner=as.numeric(winner)-1) %>% 
+         winner=as.numeric(winner)) %>% 
   group_by(cluster) %>% 
-  summarise(winrate=sum(winner)/n(),
-            pred_winrate=sum(predicted)/n())
+  summarise(winrate=sum(winner)/n())
+
+
+factors = princomp(mat)
+
+df_norm %>% 
+  mutate(fc1 = factors$scores[,1],
+         fc2 = factors$scores[,2],
+         fc3 = factors$scores[,3],
+         cluster = factor(kfit$cluster)) %>% 
+  ggplot(aes(x=fc1, y=fc2)) + geom_point(aes(color=cluster))
+
+df_norm %>% 
+  mutate(fc1 = factors$scores[,1],
+         fc2 = factors$scores[,2],
+         fc3 = factors$scores[,3],
+         cluster = factor(kfit$cluster)) %>% 
+  ggplot(aes(x=fc3, y=fc2)) + geom_point(aes(color=cluster))

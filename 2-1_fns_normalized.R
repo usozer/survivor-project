@@ -6,6 +6,15 @@ library(usedist)
 source("1_cleaning.R")
 source("0_enddates.R")
 
+df <- s %>% 
+  select(sid, castaway, season, season_name, age, day, order, result,
+         original_tribe, immunity_idols_won, jury, ftc, appearance, returning) %>% 
+  group_by(season) %>% 
+  mutate(winner = as.numeric(result == "Sole Survivor"),
+         season_name = str_match(season_name, "Survivor: (.+)")[,2],
+         .after=order) %>% 
+  ungroup()
+
 survivors <- s %>% 
   mutate(age = (age-mean(age))/sd(age)) %>% 
   select(sid, castaway, season, season_name, age, day, order, result,
@@ -56,7 +65,7 @@ finalists$jury_simil[94:105] = apply(finalists[94:105,],1, function(x) calcJuryS
 
 
 ####
-seasonno =36
+seasonno =6
 p <- getSeasonSummary(seasonno) %>% 
   as.matrix()
 rownames(p) <- p[,1]
