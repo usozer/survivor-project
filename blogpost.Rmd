@@ -6,10 +6,18 @@ output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(eval=FALSE, echo = TRUE)
+knitr::opts_chunk$set(
+	eval = FALSE,
+	echo = TRUE,
+	message = FALSE,
+	warning = FALSE
+)
 library(survivoR)
 library(tidyverse)
 library(gridExtra)
+library(nnet)
+library(ALEPlot)
+library(caret)
 
 source("2-1_fns_normalized.R")
 source("5_clustering.R")
@@ -29,13 +37,18 @@ Survivor is a popular show and it's easy to understand why. The rules of the gam
 
 16 to 20 castaways are placed in a remote location and divided up into tribes. The goal? Making it to the end of the 39 days of the game without getting voted off, whether that is through winning immunity challenges to keep you safe from votes, or making alliances to vote with, not against, you. At the end of the 39 days, only 3 (or 2) survivors stand to make their case to the jury as to why they should claim the title of sole survivor and the $1 million prize. This is where it gets interesting. The jury is 7-10 castaways that were most recently voted out of the tribe. So your job as a finalist now is to convince the people you had a hand in voting out why they should write you in as their winner.
 
+```{r, out.width = "320px", echo=FALSE, eval=TRUE, fig.align='center'}
+knitr::include_graphics("images/kaohrongftc.png")
+```
+
+
 The general consensus among the fans as well as the previous castaways is that there is always a great deal of luck involved in deciding who makes it to the end. So in this project I decided to solely focus on the finalists of the game, the two or three survivors standing at the end with different (or similar) styles of game play for each other. When the power shifts to the jury, what are the qualities of a finalist that helps or hinders them in their pursuit of winning the game? Can I somehow quantify aspects of how these finalists played the game that would allow me to compare them to each other, regardless of what season they come from?
 
 # II. Descriptive statistics, feature engineering
 
 Data was obtained from ```survivoR``` package in R, available at the public Github repo [**doehm/survivoR**](https://github.com/doehm/survivoR).
 
-### Primary features
+## Primary features
 
 Here are the primary features that I considered:
 
@@ -43,67 +56,67 @@ Here are the primary features that I considered:
 
 * **Immunity idols won** (`necklaces`): This was one of the variables I was personally curious about, because there have been winners that were very dominant in the challenges and won lots of immunity idols, but many winners famously have won without getting a single immunity idol (one particular castaway managed it twice).
 
+\newpage
+
 * **Appearance**: Many previous contestants return to play other seasons, and being a returning player might influence jury's decision to award you with the title, depending on if they view it positively or not.
 
 * Date of final tribal council: I have access to the dates that each season's jury would be making their decisions (day 39 of filming) to control for a seasonal effect, but for now I did not add this in the model.
 
 
-
-```{r, include=TRUE, eval=TRUE, echo=TRUE, fig.height=2.5, fig.width=4}
-df %>% 
+```{r eval=TRUE, echo=FALSE}
+df <- df %>% 
   mutate(relevance=case_when(jury==1 ~ "jury",
-                             ftc==1 ~ "ftc")) %>% 
-  filter(!is.na(relevance)) %>% 
-  ggplot(aes(age)) + geom_density(aes(color = relevance)) + 
-  labs(title = "The jury and the finalists have the same age distribution") +
-  theme(legend.position = "bottom")
+                             ftc==1 ~ "finalist")) %>% 
+  filter(!is.na(relevance))
+
+grid.arrange(ggplot(df, aes(age)) + geom_density(aes(col = relevance)) + 
+labs(title = "Jury & finalists are the same age") +
+theme(legend.position = "none"),
+  
+ggplot(df, aes(immunity_idols_won)) + geom_density(aes(fill = relevance),
+                                           position="dodge") + 
+labs(title = "Unequal idol distribution") +
+theme(legend.position = c(0.8, 0.8)) + labs(fill=NULL),
+
+ncol=2)
 ```
 
+The age distribution is identical for finalists and jury, but the distribution of the immunity idols suggest that most finalists have won the idol at least once, whereas majority of the jury members never had. 
 
-### Derived features
+## Derived features
 
-* *Original tribe representation* (`prevtribe_jury`): These feature looks at the importance of day 1 bonds; it is the percentage of jury members who were in the same tribe as the finalist.
+* **Original tribe representation** (`prevtribe_jury`): These feature looks at the importance of day 1 bonds; it is the percentage of jury members who were in the same tribe as the finalist.
 
 Next two features were designed in my interest to somehow incorporate finalists' voting histories in the model. `survivoR` package also has a voting history table, through which I was able to extract a matrix of "vote vectors" for each jury member and finalist per each season. 
 
 Here is what I had for season 6: The Amazon.
 
+```{r, echo=FALSE, eval=TRUE, include=FALSE}
+seasonno =6
+p <- getSeasonSummary(seasonno) %>% 
+  as.matrix()
+rownames(p) <- p[,1]
+p <- p[,-1]
+jury <- survivors %>% filter(season==seasonno, jury==1) %>% pull(castaway)
+final <- survivors %>% filter(season==seasonno, ftc==1) %>% pull(castaway)
+```
+
 ```{r, echo=TRUE, eval=TRUE, include=TRUE}
 p[final,8:14]
 ```
+
+\newpage
 
 ```{r, echo=TRUE, eval=TRUE, include=TRUE}
 p[jury,8:14]
 ```
 
-* *Jury similarity index* (`jury_simil`): This variable quantifies how similar the finalist voted compared to the jury members. The idea is that if the similarity index is high, that means the finalist was likely in alliances with the jury members or simply aligning interests with them. How does clashing or matching voting histories affect jury's decision? In calculation, `jury_simil` is the average Jaccard index between a finalist and each jury member.
+* **Jury similarity index** (`jury_simil`): This variable quantifies how similar the finalist voted compared to the jury members. The idea is that if the similarity index is high, that means the finalist was likely in alliances with the jury members or simply aligning interests with them. How does clashing or matching voting histories affect jury's decision? In calculation, `jury_simil` is the average Jaccard index between a finalist and each jury member.
 
-* *Majority vote percentage* (`majorityvote`): The idea for this variable came from the final trouble council at Season 33 when a finalist was asked by a jury member how many times she was a part of the majority vote. How I interpret this is that if your vote belonged to the majority's most of the time, then you likely had a good grasp of the game, command over tribe mates and successful alliance management. How does the jury value being the dominant force vs. the underdog?
-
-# III. Modeling
-
-All statistical learning models were selected and tuned through *n*-fold cross validation. Here was the algorithm: The model is trained on finalists from all seasons but one. The predicted probabilities of winning for the left-out season finalists are obtained from the trained model, and the person with the highest probability in the final 2 or final 3 is declared the winner. 
-
-```
-distribution = "bernoulli",
-n.trees=1000, 
-shrinkage=0.111, 
-interaction.depth=2, 
-bag.fraction = .5, 
-n.minobsinnode = 2,
-cv.folds=10
-```
+* **Majority vote percentage** (`majorityvote`): The idea for this variable came from the final trouble council at Season 33 when a finalist was asked by a jury member how many times she was a part of the majority vote. How I interpret this is that if your vote belonged to the majority's most of the time, then you likely had a good grasp of the game, command over tribe mates and successful alliance management. How does the jury value being the dominant force vs. the underdog?
 
 
-```
-size=2
-decay=0.037
-linout=FALSE
-maxit=1000
-skip=FALSE
-```
-
-# IV. Clustering
+# III. Clustering
 
 Just for the fun of it, since I have all this normalized data now, I decided to see if I can come up with a cluster solution that could help me gain some insight as to how I can group these finalists together.
 
@@ -142,7 +155,7 @@ Surprisingly, or unsurprisingly, real life data says cluster 1 and 4 became more
 
 Just to test the validity of my solution, I did dimensionality reduction through PCA, plotted the PC-scores and individually colored the clusters.
 
-```{r, eval=TRUE, echo=FALSE}
+```{r, eval=TRUE, echo=FALSE, out.width='300px'}
 par(mfrow=c(1,2))
 
 grid.arrange(df_norm %>% 
@@ -151,7 +164,7 @@ grid.arrange(df_norm %>%
          PC3 = factors$scores[,3],
          cluster = factor(kfit$cluster)) %>% 
   ggplot(aes(x=PC1, y=PC2)) + geom_point(aes(color=cluster)) +
-                                           theme(legend.position = "none"),
+  theme(legend.position = c(0.7, 0.95), legend.direction="horizontal") + labs(color=NULL),
 
 df_norm %>% 
   mutate(PC1 = factors$scores[,1],
@@ -166,9 +179,72 @@ ncol=2)
 
 This is kind of like looking at two different sides of a cube. The clusters are not very immediate, but they served their explanatory purpose for now.
 
+\newpage
+
+# IV. Modeling
+
+All statistical learning models were selected and tuned through *n*-fold cross validation. Here was the algorithm: The model is trained on finalists from all seasons but one. The predicted probabilities of winning for the left-out season finalists are obtained from the trained model, and the person with the highest probability in the final 2 or final 3 is declared the winner. 
+
+I considered various models but eventually landed on a neural network with logistic outputs. I ran into issues with nonlinear models like boosted trees and k-nearest neighbors where the model was yielding equal win probabilities and hence predicting multiple winners per season. Neural network predictions did not have the same issue.
+
+I used the `nnet` package to fit the model, and tuned hidden layer nodes and regularization parameter to minimize the misclass rate.
+
+```{r, eval=TRUE, echo=FALSE}
+matrix(c(0.4476190, 0.4380952, 0.4571429, 0.4190476, 0.4190476, 0.4761905, 0.4761905, 0.4761905,
+         0.4761905, 0.4571429, 0.4380952, 0.4380952, 0.4380952, 0.4761905, 0.4761905, 0.4761905,
+         0.4476190, 0.4571429, 0.5142857, 0.4952381, 0.4380952, 0.4761905, 0.4761905, 0.4761905),
+       byrow=T,
+       nrow=3,
+       dimnames=list(paste(1:3, "nodes"), c("lambda=0.004", 0.012, 0.037, 0.111, 0.333, 1, 3, 9)))
+```
+
+Best tuning parameters & options turned out to be the following:
+
+```
+size=2
+decay=0.037
+linout=FALSE
+maxit=1000
+skip=FALSE
+```
+
+Now that we have a tuned model, what can we learn from it? We can look at relative feature importance to see which variables have the largest contribution in predictions. I'll use `caret` package, which uses Recursive Feature Elimination (RFE) to determine the importance measures.
+
+
+```{r, echo=FALSE, eval=TRUE}
+set.seed(125)
+train <- df_norm[,-(1:3)]
+
+final_nn <- nnet(winner~., size=2, data=train, 
+                  maxit=1000, decay=0.037, skip=FALSE, trace=FALSE)
+arrange(varImp(final_nn), desc(Overall))
+```
+
+And we can also use partial dependence plots (I use ALE plots here) to see the isolated effects of each variable.
+
+```{r, echo=FALSE, eval=TRUE}
+yhat <- function(X.model, newdata) as.numeric(predict(X.model, newdata, type="raw", n.trees=2))
+par(mfrow=c(2,4))
+for (j in 1:7)  {
+  ALEPlot(as.data.frame(train[,-1]), final_nn, pred.fun=yhat, J=j, K=50, NA.plot = TRUE)
+}
+```
+
+It is slightly annoying to interpret the variables since the scales are normalized, but we can look at the curve to provide some explanations.
+
+* **Age** follows a roughly linear trajectory, meaning younger finalists are more likely to win the show. 
+
+* **`majorityvote`** has a very interesting curve. Win probability is maximized at a little below the average and sharply declines as `majorityvote` approaches 1. The way I see it is that players who didn't always vote with the majority are favored, but not to the extent where the percentage is extremely low (if a finalist never knew what was going on and always voted against the crowd, that's viewed negatively.) But when the percentage is too high, close to 100%, then the finalist is probably viewed by the jury as cunning and devious which also works against the finalist's favor.
+
+* **Number of immunity idols** (`necklaces`) was probably the most surprising here, where fewer idols didn't have a positive effect (if you see the scale for `x_2 (necklaces)`, main effect at y-axis at the lower end is 0) but more idols hurt the finalists' chances.
+
+* **Appearance** didn't appear to be one of the more important variables, and it is most likely heavily influenced by one particular data point for Season 22 when Rob "Boston Rob" Mariano won Survivor on his 4th try.
+
 # V. Bootstrap estimates
 
 Now that I have my model tuned, I can repeat this a bunch of times! For each season, I will generate 10000 predictions of who the winner is going to be, with a model trained on a resampling with replacement of the 39 other seasons. That is a whopping 400,000 neural networks fit! Thankfully I was able to set up this code to run on the MSiA servers overnight.
+
+\newpage
 
 ```{r, include=TRUE}
 no.reps <- 10000
