@@ -65,7 +65,7 @@ finalists$jury_simil[94:105] = apply(finalists[94:105,],1, function(x) calcJuryS
 
 
 ####
-seasonno =6
+seasonno =36
 p <- getSeasonSummary(seasonno) %>% 
   as.matrix()
 rownames(p) <- p[,1]
