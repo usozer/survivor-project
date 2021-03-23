@@ -1,0 +1,732 @@
+sid,castaway,season,season_name,age,day,order,winner,result,original_tribe,immunity_idols_won,jury,ftc,appearance,returning
+1,Sonja,1,Borneo,63,3,1,0,1st voted out,Tagi,0,0,0,1,0
+2,B.B.,1,Borneo,64,6,2,0,2nd voted out,Pagong,0,0,0,1,0
+3,Stacey,1,Borneo,27,9,3,0,3rd voted out,Tagi,0,0,0,1,0
+4,Ramona,1,Borneo,29,12,4,0,4th voted out,Pagong,0,0,0,1,0
+5,Dirk,1,Borneo,23,15,5,0,5th voted out,Tagi,0,0,0,1,0
+6,Joel,1,Borneo,27,18,6,0,6th voted out,Pagong,0,0,0,1,0
+7,Gretchen,1,Borneo,38,21,7,0,7th voted out,Pagong,0,0,0,1,0
+8,Greg,1,Borneo,24,24,8,0,8th voted out,Pagong,1,1,0,1,0
+9,Jenna,1,Borneo,22,27,9,0,9th voted out,Pagong,0,1,0,1,0
+10,Gervase,1,Borneo,30,30,10,0,10th voted out,Pagong,1,1,0,1,0
+11,Colleen,1,Borneo,23,33,11,0,11th voted out,Pagong,0,1,0,1,0
+12,Sean,1,Borneo,30,36,12,0,12th voted out,Tagi,0,1,0,1,0
+13,Susan,1,Borneo,38,37,13,0,13th voted out,Tagi,0,1,0,1,0
+14,Rudy,1,Borneo,72,38,14,0,14th voted out,Tagi,1,1,0,1,0
+15,Kelly,1,Borneo,22,39,15,0,Runner-up,Tagi,4,0,1,1,0
+16,Richard,1,Borneo,39,39,16,1,Sole Survivor,Tagi,1,0,1,1,0
+17,Debb,2,The Australian Outback,45,3,1,0,1st voted out,Kucha,0,0,0,1,0
+18,Kel,2,The Australian Outback,32,6,2,0,2nd voted out,Ogakor,0,0,0,1,0
+19,Maralyn,2,The Australian Outback,51,9,3,0,3rd voted out,Ogakor,0,0,0,1,0
+20,Mitchell,2,The Australian Outback,23,12,4,0,4th voted out,Ogakor,0,0,0,1,0
+21,Kimmi,2,The Australian Outback,27,15,5,0,5th voted out,Kucha,0,0,0,1,0
+22,Michael,2,The Australian Outback,38,17,6,0,Medically evacuated,Kucha,0,0,0,1,0
+23,Jeff,2,The Australian Outback,34,21,7,0,6th voted out,Kucha,0,0,0,1,0
+24,Alicia,2,The Australian Outback,32,24,8,0,7th voted out,Kucha,0,1,0,1,0
+25,Jerri,2,The Australian Outback,30,27,9,0,8th voted out,Ogakor,0,1,0,1,0
+26,Nick,2,The Australian Outback,23,30,10,0,9th voted out,Kucha,1,1,0,1,0
+27,Amber,2,The Australian Outback,22,33,11,0,10th voted out,Ogakor,0,1,0,1,0
+28,Rodger,2,The Australian Outback,53,36,12,0,11th voted out,Kucha,0,1,0,1,0
+29,Elisabeth,2,The Australian Outback,23,39,13,0,12th voted out,Kucha,0,1,0,1,0
+30,Keith,2,The Australian Outback,40,41,14,0,13th voted out,Ogakor,2,1,0,1,0
+31,Colby,2,The Australian Outback,26,39,15,0,Runner-up,Ogakor,5,0,1,1,0
+32,Tina,2,The Australian Outback,40,39,16,1,Sole Survivor,Ogakor,0,0,1,1,0
+33,Diane,3,Africa,42,3,1,0,1st voted out,Boran,0,0,0,1,0
+34,Jessie,3,Africa,26,6,2,0,2nd voted out,Boran,0,0,0,1,0
+35,Carl,3,Africa,46,9,3,0,3rd voted out,Samburu,0,0,0,1,0
+36,Linda,3,Africa,44,12,4,0,4th voted out,Samburu,0,0,0,1,0
+37,Silas,3,Africa,23,15,5,0,5th voted out,Samburu,0,0,0,1,0
+38,Lindsey,3,Africa,26,18,6,0,6th voted out,Samburu,0,0,0,1,0
+39,Clarence,3,Africa,24,21,7,0,7th voted out,Boran,0,0,0,1,0
+40,Kelly,3,Africa,22,24,8,0,8th voted out,Boran,0,1,0,1,0
+41,Brandon,3,Africa,25,27,9,0,9th voted out,Samburu,0,1,0,1,0
+42,Frank,3,Africa,43,30,10,0,10th voted out,Samburu,0,1,0,1,0
+43,Kim P.,3,Africa,29,33,11,0,11th voted out,Samburu,0,1,0,1,0
+44,Teresa,3,Africa,42,36,12,0,12th voted out,Samburu,1,1,0,1,0
+45,Tom,3,Africa,45,37,13,0,13th voted out,Boran,1,1,0,1,0
+46,Lex,3,Africa,38,38,14,0,14th voted out,Boran,3,1,0,1,0
+47,Kim J.,3,Africa,56,39,15,0,Runner-up,Boran,2,0,1,1,0
+48,Ethan,3,Africa,27,39,16,1,Sole Survivor,Boran,1,0,1,1,0
+49,Peter,4,Marquesas,44,3,1,0,1st voted out,Maraamu,0,0,0,1,0
+50,Patricia,4,Marquesas,49,6,2,0,2nd voted out,Maraamu,0,0,0,1,0
+51,Hunter,4,Marquesas,33,9,3,0,3rd voted out,Maraamu,0,0,0,1,0
+52,Sarah,4,Marquesas,24,12,4,0,4th voted out,Maraamu,0,0,0,1,0
+53,Gabriel,4,Marquesas,23,15,5,0,5th voted out,Rotu,0,0,0,1,0
+54,Gina,4,Marquesas,28,18,6,0,6th voted out,Maraamu,0,0,0,1,0
+55,Rob,4,Marquesas,25,21,7,0,7th voted out,Maraamu,0,0,0,1,0
+56,John,4,Marquesas,36,24,8,0,8th voted out,Rotu,0,1,0,1,0
+57,Zoe,4,Marquesas,35,27,9,0,9th voted out,Rotu,0,1,0,1,0
+58,Tammy,4,Marquesas,29,30,10,0,10th voted out,Rotu,2,1,0,1,0
+59,Robert,4,Marquesas,38,33,11,0,11th voted out,Rotu,1,1,0,1,0
+60,Sean,4,Marquesas,30,36,12,0,12th voted out,Maraamu,0,1,0,1,0
+61,Paschal,4,Marquesas,56,37,13,0,Eliminated,Rotu,0,1,0,1,0
+62,Kathy,4,Marquesas,46,38,14,0,13th voted out,Rotu,2,1,0,1,0
+63,Neleh,4,Marquesas,21,39,15,0,Runner-up,Rotu,1,0,1,1,0
+64,Vecepia,4,Marquesas,36,39,16,1,Sole Survivor,Maraamu,2,0,1,1,0
+65,John,5,Thailand,40,3,1,0,1st voted out,Chuay Gahn,0,0,0,1,0
+66,Tanya,5,Thailand,27,6,2,0,2nd voted out,Chuay Gahn,0,0,0,1,0
+67,Jed,5,Thailand,25,9,3,0,3rd voted out,Sook Jai,0,0,0,1,0
+68,Ghandia,5,Thailand,33,12,4,0,4th voted out,Chuay Gahn,0,0,0,1,0
+69,Stephanie,5,Thailand,29,15,5,0,5th voted out,Sook Jai,0,0,0,1,0
+70,Robb,5,Thailand,23,18,6,0,6th voted out,Sook Jai,0,0,0,1,0
+71,Shii Ann,5,Thailand,28,21,7,0,7th voted out,Sook Jai,0,0,0,1,0
+72,Erin,5,Thailand,26,24,8,0,8th voted out,Sook Jai,0,1,0,1,0
+73,Ken,5,Thailand,30,27,9,0,9th voted out,Sook Jai,0,1,0,1,0
+74,Penny,5,Thailand,27,30,10,0,10th voted out,Sook Jai,0,1,0,1,0
+75,Jake,5,Thailand,60,33,11,0,11th voted out,Sook Jai,0,1,0,1,0
+76,Ted,5,Thailand,37,36,12,0,12th voted out,Chuay Gahn,1,1,0,1,0
+77,Helen,5,Thailand,47,37,13,0,13th voted out,Chuay Gahn,1,1,0,1,0
+78,Jan,5,Thailand,53,38,14,0,14th voted out,Chuay Gahn,0,1,0,1,0
+79,Clay,5,Thailand,46,39,15,0,Runner-up,Chuay Gahn,1,0,1,1,0
+80,Brian,5,Thailand,34,39,16,1,Sole Survivor,Chuay Gahn,3,0,1,1,0
+81,Ryan,6,The Amazon,23,3,1,0,1st voted out,Tambaqui,0,0,0,1,0
+82,Janet,6,The Amazon,46,6,2,0,2nd voted out,Jaburu,0,0,0,1,0
+83,Daniel,6,The Amazon,26,9,3,0,3rd voted out,Tambaqui,0,0,0,1,0
+84,JoAnna,6,The Amazon,31,12,4,0,4th voted out,Jaburu,0,0,0,1,0
+85,Jeanne,6,The Amazon,40,15,5,0,5th voted out,Jaburu,0,0,0,1,0
+86,Shawna,6,The Amazon,23,18,6,0,6th voted out,Jaburu,0,0,0,1,0
+87,Roger,6,The Amazon,56,21,7,0,7th voted out,Tambaqui,0,0,0,1,0
+88,Dave,6,The Amazon,23,24,8,0,8th voted out,Tambaqui,0,1,0,1,0
+89,Deena,6,The Amazon,35,27,9,0,9th voted out,Jaburu,1,1,0,1,0
+90,Alex,6,The Amazon,32,30,10,0,10th voted out,Tambaqui,0,1,0,1,0
+91,Christy,6,The Amazon,24,33,11,0,11th voted out,Jaburu,0,1,0,1,0
+92,Heidi,6,The Amazon,24,36,12,0,12th voted out,Jaburu,0,1,0,1,0
+93,Butch,6,The Amazon,50,37,13,0,13th voted out,Tambaqui,0,1,0,1,0
+94,Rob,6,The Amazon,24,38,14,0,14th voted out,Tambaqui,1,1,0,1,0
+95,Matthew,6,The Amazon,33,39,15,0,Runner-up,Tambaqui,2,0,1,1,0
+96,Jenna,6,The Amazon,21,39,16,1,Sole Survivor,Jaburu,3,0,1,1,0
+97,Nicole,7,Pearl Islands,24,3,1,0,1st voted out,Morgan,0,0,0,1,0
+98,Ryan S.,7,Pearl Islands,23,6,2,0,2nd voted out,Morgan,0,0,0,1,0
+99,Michelle,7,Pearl Islands,22,15,5,0,5th voted out,Drake,0,0,0,1,0
+100,Trish,7,Pearl Islands,42,18,6,0,6th voted out,Drake,0,0,0,1,0
+101,Shawn,7,Pearl Islands,28,19,7,0,7th voted out,Drake,0,0,0,1,0
+102,Osten,7,Pearl Islands,27,19,8,0,Quit,Morgan,0,0,0,1,0
+103,Andrew,7,Pearl Islands,39,21,9,0,8th voted out,Morgan,0,0,0,1,0
+104,Ryan O.,7,Pearl Islands,30,24,10,0,9th voted out,Morgan,0,1,0,1,0
+105,Rupert,7,Pearl Islands,39,27,11,0,10th voted out,Drake,2,1,0,1,0
+106,Tijuana,7,Pearl Islands,26,30,12,0,11th voted out,Morgan,0,1,0,1,0
+107,Christa,7,Pearl Islands,24,33,13,0,12th voted out,Drake,0,1,0,1,0
+108,Burton,7,Pearl Islands,31,36,14,0,13th voted out,Drake,2,1,0,1,0
+109,Darrah,7,Pearl Islands,22,37,15,0,14th voted out,Morgan,3,1,0,1,0
+110,Jon,7,Pearl Islands,29,38,16,0,15th voted out,Drake,0,1,0,1,0
+111,Lillian,7,Pearl Islands,51,39,17,0,Runner-up,Morgan,1,0,1,1,0
+112,Sandra,7,Pearl Islands,29,39,18,1,Sole Survivor,Drake,0,0,1,1,0
+113,Tina,8,All-Stars,42,3,1,0,1st voted out,Saboga,0,0,0,2,1
+114,Rudy,8,All-Stars,75,6,2,0,2nd voted out,Saboga,0,0,0,2,1
+115,Jenna,8,All-Stars,22,9,3,0,Quit,Mogo Mogo,0,0,0,2,1
+116,Rob C.,8,All-Stars,25,12,4,0,3rd voted out,Chapera,0,0,0,2,1
+117,Richard,8,All-Stars,42,15,5,0,4th voted out,Mogo Mogo,0,0,0,2,1
+118,Sue,8,All-Stars,42,17,6,0,Quit,Chapera,0,0,0,2,1
+119,Colby,8,All-Stars,29,19,7,0,5th voted out,Mogo Mogo,0,0,0,2,1
+120,Ethan,8,All-Stars,30,21,8,0,6th voted out,Saboga,0,0,0,2,1
+121,Jerri,8,All-Stars,33,24,9,0,7th voted out,Saboga,0,0,0,2,1
+122,Lex,8,All-Stars,40,27,10,0,8th voted out,Mogo Mogo,0,1,0,2,1
+123,Kathy,8,All-Stars,48,28,11,0,9th voted out,Mogo Mogo,1,1,0,2,1
+124,Alicia,8,All-Stars,35,30,12,0,10th voted out,Chapera,0,1,0,2,1
+125,Shii Ann,8,All-Stars,29,33,13,0,11th voted out,Mogo Mogo,1,1,0,2,1
+126,Tom,8,All-Stars,48,36,14,0,12th voted out,Chapera,1,1,0,2,1
+127,Rupert,8,All-Stars,39,37,15,0,13th voted out,Saboga,0,1,0,2,1
+128,Jenna L.,8,All-Stars,26,38,16,0,14th voted out,Saboga,0,1,0,2,1
+129,Rob M.,8,All-Stars,27,39,17,0,Runner-up,Chapera,4,0,1,2,1
+130,Amber,8,All-Stars,25,39,18,1,Sole Survivor,Chapera,1,0,1,2,1
+131,Brook,9,Vanuatu,27,3,1,0,1st voted out,Lopevi,0,0,0,1,0
+132,Dolly,9,Vanuatu,25,6,2,0,2nd voted out,Yasur,0,0,0,1,0
+133,John P.,9,Vanuatu,31,7,3,0,3rd voted out,Lopevi,0,0,0,1,0
+134,Mia,9,Vanuatu,29,7,4,0,4th voted out,Yasur,0,0,0,1,0
+135,Brady,9,Vanuatu,33,10,5,0,5th voted out,Lopevi,0,0,0,1,0
+136,Travis,9,Vanuatu,33,12,6,0,6th voted out,Lopevi,0,0,0,1,0
+137,Lisa,9,Vanuatu,44,15,7,0,7th voted out,Yasur,0,0,0,1,0
+138,John K.,9,Vanuatu,22,18,8,0,8th voted out,Lopevi,1,0,0,1,0
+139,Rory,9,Vanuatu,35,21,9,0,9th voted out,Lopevi,0,0,0,1,0
+140,Lea,9,Vanuatu,40,24,10,0,10th voted out,Lopevi,1,1,0,1,0
+141,Chad,9,Vanuatu,34,27,11,0,11th voted out,Lopevi,0,1,0,1,0
+142,Leann,9,Vanuatu,35,30,12,0,12th voted out,Yasur,0,1,0,1,0
+143,Ami,9,Vanuatu,31,33,13,0,13th voted out,Yasur,3,1,0,1,0
+144,Julie,9,Vanuatu,23,36,14,0,14th voted out,Yasur,0,1,0,1,0
+145,Eliza,9,Vanuatu,21,37,15,0,15th voted out,Yasur,1,1,0,1,0
+146,Scout,9,Vanuatu,59,38,16,0,16th voted out,Yasur,0,1,0,1,0
+147,Twila,9,Vanuatu,41,39,17,0,Runner-up,Yasur,1,0,1,1,0
+148,Chris,9,Vanuatu,33,39,18,1,Sole Survivor,Lopevi,3,0,1,1,0
+149,Jonathan,10,Palau,23,2,1,0,Eliminated,None,0,0,0,1,0
+150,Wanda,10,Palau,55,2,2,0,Eliminated,None,0,0,0,1,0
+151,Jolanda,10,Palau,38,3,3,0,1st voted out,Ulong,1,0,0,1,0
+152,Ashlee,10,Palau,22,6,4,0,2nd voted out,Ulong,0,0,0,1,0
+153,Jeff,10,Palau,21,8,5,0,3rd voted out,Ulong,0,0,0,1,0
+154,Kim,10,Palau,25,11,6,0,4th voted out,Ulong,0,0,0,1,0
+155,Willard,10,Palau,56,12,7,0,5th voted out,Koror,0,0,0,1,0
+156,Angie,10,Palau,24,12,8,0,6th voted out,Ulong,0,0,0,1,0
+157,James,10,Palau,33,15,9,0,7th voted out,Ulong,0,0,0,1,0
+158,Ibrehem,10,Palau,27,18,10,0,8th voted out,Ulong,1,0,0,1,0
+159,Bobbly Jon,10,Palau,27,21,11,0,Eliminated,Ulong,0,0,0,1,0
+160,Coby,10,Palau,32,24,12,0,9th voted out,Koror,0,1,0,1,0
+161,Janu,10,Palau,39,27,13,0,Quit,Koror,0,1,0,1,0
+162,Stephenie,10,Palau,24,30,14,0,10th voted out,Ulong,0,1,0,1,0
+163,Gregg,10,Palau,27,33,15,0,11th voted out,Koror,0,1,0,1,0
+164,Caryn,10,Palau,46,36,16,0,12th voted out,Koror,0,1,0,1,0
+165,Jenn,10,Palau,32,37,17,0,13th voted out,Koror,0,1,0,1,0
+166,Ian,10,Palau,23,38,18,0,14th voted out,Koror,3,1,0,1,0
+167,Katie,10,Palau,29,39,19,0,Runner-up,Koror,0,0,1,1,0
+168,Tom,10,Palau,40,39,20,1,Sole Survivor,Koror,5,0,1,1,0
+169,Jim,11,Guatemala,63,3,1,0,1st voted out,Nakúm,0,0,0,1,0
+170,Morgan,11,Guatemala,21,6,2,0,2nd voted out,Yaxhá,0,0,0,1,0
+171,Brianna,11,Guatemala,21,8,3,0,3rd voted out,Yaxhá,0,0,0,1,0
+172,Brooke,11,Guatemala,25,11,4,0,4th voted out,Nakúm,0,0,0,1,0
+173,Blake,11,Guatemala,24,14,5,0,5th voted out,Nakúm,0,0,0,1,0
+174,Margaret,11,Guatemala,43,15,6,0,6th voted out,Nakúm,0,0,0,1,0
+175,Brian,11,Guatemala,22,15,7,0,7th voted out,Yaxhá,0,0,0,1,0
+176,Amy,11,Guatemala,39,18,8,0,8th voted out,Yaxhá,0,0,0,1,0
+177,Brandon,11,Guatemala,22,21,9,0,9th voted out,Nakúm,0,0,0,1,0
+178,Bobbly Jon,11,Guatemala,28,24,10,0,10th voted out,Nakúm,0,1,0,2,1
+179,Jamie,11,Guatemala,24,27,11,0,11th voted out,Yaxhá,1,1,0,1,0
+180,Gary,11,Guatemala,46,30,12,0,12th voted out,Yaxhá,2,1,0,1,0
+181,Judd,11,Guatemala,34,33,13,0,13th voted out,Nakúm,0,1,0,1,0
+182,Cindy,11,Guatemala,31,36,14,0,14th voted out,Nakúm,0,1,0,1,0
+183,Lydia,11,Guatemala,42,37,15,0,15th voted out,Yaxhá,0,1,0,1,0
+184,Rafe,11,Guatemala,22,38,16,0,16th voted out,Yaxhá,4,1,0,1,0
+185,Stephenie,11,Guatemala,25,39,17,0,Runner-up,Yaxhá,1,0,1,2,1
+186,Danni,11,Guatemala,29,39,18,1,Sole Survivor,Nakúm,2,0,1,1,0
+187,Tina,12,Panama,44,3,1,0,1st voted out,Casaya,0,0,0,1,0
+188,Melinda,12,Panama,32,6,2,0,2nd voted out,Casaya,0,0,0,1,0
+189,Misty,12,Panama,24,8,3,0,3rd voted out,Bayoneta,0,0,0,1,0
+190,Ruth Marie,12,Panama,48,11,4,0,4th voted out,Casaya,0,0,0,1,0
+191,Bobby,12,Panama,32,14,5,0,5th voted out,Viveros,0,0,0,1,0
+192,Dan,12,Panama,51,15,6,0,6th voted out,La Mina,0,0,0,1,0
+193,Nick,12,Panama,25,18,7,0,7th voted out,Viveros,0,0,0,1,0
+194,Austin,12,Panama,24,21,8,0,8th voted out,Viveros,0,1,0,1,0
+195,Sally,12,Panama,27,24,9,0,9th voted out,Bayoneta,0,1,0,1,0
+196,Bruce,12,Panama,57,25,10,0,Medically evacuated,La Mina,0,1,0,1,0
+197,Courtney,12,Panama,31,30,11,0,10th voted out,Bayoneta,0,1,0,1,0
+198,Shane,12,Panama,34,33,12,0,11th voted out,La Mina,0,1,0,1,0
+199,Cirie,12,Panama,35,36,13,0,12th voted out,Casaya,0,1,0,1,0
+200,Terry,12,Panama,46,38,14,0,13th voted out,La Mina,5,1,0,1,0
+201,Danielle,12,Panama,24,39,15,0,Runner-up,Bayoneta,1,0,1,1,0
+202,Aras,12,Panama,24,39,16,1,Sole Survivor,Viveros,0,0,1,1,0
+203,Sekou,13,Cook Islands,45,3,1,0,1st voted out,Manihiki,0,0,0,1,0
+204,Billy,13,Cook Islands,36,6,2,0,2nd voted out,Aitutaki,0,0,0,1,0
+205,Cecilia,13,Cook Islands,29,8,3,0,3rd voted out,Aitutaki,0,0,0,1,0
+206,J.P.,13,Cook Islands,30,11,4,0,4th voted out,Aitutaki,0,0,0,1,0
+207,Stephannie,13,Cook Islands,35,14,5,0,5th voted out,Manihiki,0,0,0,1,0
+208,Cao Boi,13,Cook Islands,42,15,6,0,6th voted out,Puka Puka,0,0,0,1,0
+209,Cristina,13,Cook Islands,35,15,7,0,7th voted out,Aitutaki,0,0,0,1,0
+210,Jessica,13,Cook Islands,27,18,8,0,8th voted out,Rarotonga,0,0,0,1,0
+211,Brad,13,Cook Islands,29,21,9,0,9th voted out,Puka Puka,0,1,0,1,0
+212,Rebecca,13,Cook Islands,34,24,10,0,10th voted out,Manihiki,0,1,0,1,0
+213,Jenny,13,Cook Islands,36,24,11,0,11th voted out,Puka Puka,0,1,0,1,0
+214,Nate,13,Cook Islands,26,27,12,0,12th voted out,Manihiki,1,1,0,1,0
+215,Candice,13,Cook Islands,23,30,13,0,13th voted out,Rarotonga,0,1,0,1,0
+216,Jonathan,13,Cook Islands,44,33,14,0,14th voted out,Rarotonga,0,1,0,1,0
+217,Parvati,13,Cook Islands,23,36,15,0,15th voted out,Rarotonga,0,1,0,1,0
+218,Adam,13,Cook Islands,28,37,16,0,16th voted out,Rarotonga,1,1,0,1,0
+219,Sundra,13,Cook Islands,31,38,17,0,17th voted out,Manihiki,0,1,0,1,0
+220,Becky,13,Cook Islands,28,39,18,0,2nd Runner-up,Puka Puka,0,0,1,1,0
+221,Ozzy,13,Cook Islands,24,39,19,0,Runner-up,Aitutaki,5,0,1,1,0
+222,Yul,13,Cook Islands,31,39,20,1,Sole Survivor,Puka Puka,0,0,1,1,0
+223,Jessica,14,Fiji,27,3,1,0,1st voted out,Ravu,0,0,0,1,0
+224,Erica,14,Fiji,27,6,2,0,2nd voted out,Ravu,0,0,0,1,0
+225,Sylvia,14,Fiji,52,8,3,0,3rd voted out,Ravu,0,0,0,1,0
+226,Gary,14,Fiji,55,10,4,0,Quit,Moto,0,0,0,1,0
+227,Liliana,14,Fiji,25,11,5,0,4th voted out,Moto,0,0,0,1,0
+228,Rita,14,Fiji,38,14,6,0,5th voted out,Ravu,0,0,0,1,0
+229,Anthony,14,Fiji,32,16,7,0,6th voted out,Ravu,0,0,0,1,0
+230,Rocky,14,Fiji,28,19,8,0,7th voted out,Ravu,0,1,0,1,0
+231,Lisi,14,Fiji,36,21,9,0,8th voted out,Moto,0,1,0,1,0
+232,Michelle,14,Fiji,23,24,10,0,9th voted out,Ravu,0,1,0,1,0
+233,Edgardo,14,Fiji,28,27,11,0,10th voted out,Moto,0,1,0,1,0
+234,Mookie,14,Fiji,25,30,12,0,11th voted out,Ravu,0,1,0,1,0
+235,Alex,14,Fiji,28,33,13,0,12th voted out,Moto,0,1,0,1,0
+236,Stacy,14,Fiji,27,36,14,0,13th voted out,Moto,1,1,0,1,0
+237,Boo,14,Fiji,34,37,15,0,14th voted out,Moto,3,1,0,1,0
+238,Yau-Man,14,Fiji,54,38,16,0,15th voted out,Ravu,0,1,0,1,0
+239,Dreamz,14,Fiji,25,39,17,0,Co-runner-up,Moto,1,0,1,1,0
+240,Cassandra,14,Fiji,42,39,18,0,Co-runner-up,Moto,0,0,1,1,0
+241,Earl,14,Fiji,35,39,19,1,Sole Survivor,Ravu,0,0,1,1,0
+242,Chicken,15,China,47,3,1,0,1st voted out,Zhan Hu,0,0,0,1,0
+243,Ashley,15,China,28,6,2,0,2nd voted out,Zhan Hu,0,0,0,1,0
+244,Leslie,15,China,38,9,3,0,3rd voted out,Fei Long,0,0,0,1,0
+245,Dave,15,China,37,12,4,0,4th voted out,Zhan Hu,0,0,0,1,0
+246,Aaron,15,China,32,15,5,0,5th voted out,Fei Long,0,0,0,1,0
+247,Sherea,15,China,26,18,6,0,6th voted out,Zhan Hu,0,0,0,1,0
+248,Jaime,15,China,22,21,7,0,7th voted out,Zhan Hu,0,1,0,1,0
+249,Jean-Robert,15,China,36,24,8,0,8th voted out,Fei Long,0,1,0,1,0
+250,Frosti,15,China,20,27,9,0,9th voted out,Zhan Hu,1,1,0,1,0
+251,James,15,China,30,30,10,0,10th voted out,Fei Long,0,1,0,1,0
+252,Erik,15,China,26,33,11,0,11th voted out,Zhan Hu,1,1,0,1,0
+253,Peih-Gee,15,China,29,36,12,0,12th voted out,Zhan Hu,0,1,0,1,0
+254,Denise,15,China,40,38,13,0,13th voted out,Fei Long,0,1,0,1,0
+255,Amanda,15,China,22,39,14,0,2nd runner-up,Fei Long,2,0,1,1,0
+256,Courtney,15,China,26,39,15,0,Runner-up,Fei Long,1,0,1,1,0
+257,Todd,15,China,22,39,16,1,Sole Survivor,Fei Long,0,0,1,1,0
+1,Jonny,16,Micronesia,33,3,1,0,1st voted out,Malakal,2,0,0,1,0
+259,Mary,16,Micronesia,29,6,2,0,2nd voted out,Airai,0,0,0,1,0
+260,Yau-Man,16,Micronesia,55,8,3,0,3rd voted out,Malakal,0,0,0,2,1
+261,Mikey B,16,Micronesia,34,11,4,0,4th voted out,Airai,0,0,0,1,0
+262,Joel,16,Micronesia,32,14,5,0,5th voted out,Airai,0,0,0,1,0
+263,Jonathan,16,Micronesia,45,15,6,0,Medically evacuated,Malakal,0,0,0,2,1
+264,Chet,16,Micronesia,48,17,7,0,6th voted out,Airai,0,0,0,1,0
+265,Kathy,16,Micronesia,45,19,8,0,Quit,Airai,0,0,0,1,0
+266,Tracy,16,Micronesia,43,20,9,0,7th voted out,Airai,0,0,0,1,0
+267,Ami,16,Micronesia,34,21,10,0,8th voted out,Malakal,0,0,0,2,1
+268,Eliza,16,Micronesia,25,24,11,0,9th voted out,Malakal,0,1,0,2,1
+269,Ozzy,16,Micronesia,26,27,12,0,10th voted out,Malakal,0,1,0,2,1
+270,Jason,16,Micronesia,22,30,13,0,11th voted out,Airai,1,1,0,1,0
+271,James,16,Micronesia,30,31,14,0,Medically evacuated,Malakal,0,1,0,2,1
+272,Alexis,16,Micronesia,24,33,15,0,12th voted out,Airai,0,1,0,1,0
+273,Erik,16,Micronesia,22,36,16,0,13th voted out,Airai,4,1,0,1,0
+274,Natalie,16,Micronesia,32,37,17,0,14th voted out,Airai,0,1,0,1,0
+275,Cirie,16,Micronesia,37,38,18,0,15th voted out,Malakal,0,1,0,2,1
+276,Amanda,16,Micronesia,23,39,19,0,Runner-up,Malakal,1,0,1,2,1
+277,Parvati,16,Micronesia,25,39,20,1,Sole Survivor,Malakal,1,0,1,2,1
+278,Michelle,17,Gabon,24,3,1,0,1st voted out,Fang,0,0,0,1,0
+279,Gillian,17,Gabon,61,6,2,0,2nd voted out,Fang,0,0,0,1,0
+280,Paloma,17,Gabon,23,9,3,0,3rd voted out,Kota,0,0,0,1,0
+281,Jacquie,17,Gabon,25,12,4,0,4th voted out,Kota,0,0,0,1,0
+282,GC,17,Gabon,25,15,5,0,5th voted out,Fang,1,0,0,1,0
+283,Kelly,17,Gabon,22,18,6,0,6th voted out,Kota,0,0,0,1,0
+284,Ace,17,Gabon,27,21,7,0,7th voted out,Kota,0,0,0,1,0
+285,Dan,17,Gabon,32,21,8,0,8th voted out,Fang,0,0,0,1,0
+286,Marcus,17,Gabon,28,24,9,0,9th voted out,Kota,2,1,0,1,0
+287,Charlie,17,Gabon,29,27,10,0,10th voted out,Kota,0,1,0,1,0
+288,Randy,17,Gabon,49,30,11,0,11th voted out,Fang,0,1,0,1,0
+289,Corinne,17,Gabon,29,33,12,0,12th voted out,Kota,0,1,0,1,0
+290,Crystal,17,Gabon,29,36,13,0,13th voted out,Fang,0,1,0,1,0
+291,Ken,17,Gabon,22,37,14,0,14th voted out,Fang,1,1,0,1,0
+292,Matty,17,Gabon,29,38,15,0,15th voted out,Fang,0,1,0,1,0
+293,Sugar,17,Gabon,29,39,16,0,2nd runner-up,Kota,1,0,1,1,0
+294,Susie,17,Gabon,47,39,17,0,Runner-up,Fang,2,0,1,1,0
+295,Bob,17,Gabon,57,39,18,1,Sole Survivor,Kota,3,0,1,1,0
+296,Carolina,18,Tocantins,26,3,1,0,1st voted out,Jalapao,0,0,0,1,0
+297,Candace,18,Tocantins,31,6,2,0,2nd voted out,Timbira,0,0,0,1,0
+298,Jerry,18,Tocantins,49,9,3,0,3rd voted out,Timbira,0,0,0,1,0
+299,Sandy,18,Tocantins,53,12,4,0,4th voted out,Jalapao,0,0,0,1,0
+300,Spencer,18,Tocantins,19,15,5,0,5th voted out,Jalapao,0,0,0,1,0
+301,Sydney,18,Tocantins,24,18,6,0,6th voted out,Jalapao,0,0,0,1,0
+302,Joe,18,Tocantins,26,20,7,0,Medically evacuated,Jalapao,0,0,0,1,0
+303,Brendan,18,Tocantins,30,24,8,0,7th voted out,Timbira,0,1,0,1,0
+304,Tyson,18,Tocantins,29,27,9,0,8th voted out,Timbira,2,1,0,1,0
+305,Sierra,18,Tocantins,23,30,10,0,9th voted out,Timbira,0,1,0,1,0
+306,Debbie,18,Tocantins,46,33,11,0,10th voted out,Timbira,1,1,0,1,0
+307,Coach,18,Tocantins,37,36,12,0,11th voted out,Timbira,1,1,0,1,0
+308,Taj,18,Tocantins,37,37,13,0,12th voted out,Jalapao,0,1,0,1,0
+309,Erinn,18,Tocantins,26,38,14,0,13th voted out,Timbira,0,1,0,1,0
+310,Stephen,18,Tocantins,29,39,15,0,Runner-up,Jalapao,1,0,1,1,0
+311,J.T.,18,Tocantins,24,39,16,1,Sole Survivor,Jalapao,2,0,1,1,0
+312,Marisa,19,Samoa,26,3,1,0,1st voted out,Foa Foa,0,0,0,1,0
+313,Mike,19,Samoa,62,5,2,0,Medically evacuated,Foa Foa,0,0,0,1,0
+314,Betsy,19,Samoa,48,6,3,0,2nd voted out,Foa Foa,0,0,0,1,0
+315,Ben,19,Samoa,28,8,4,0,3rd voted out,Foa Foa,0,0,0,1,0
+316,Yasmin,19,Samoa,33,11,5,0,4th voted out,Galu,0,0,0,1,0
+317,Ashley,19,Samoa,22,14,6,0,5th voted out,Foa Foa,0,0,0,1,0
+318,Russell S.,19,Samoa,42,15,7,0,Medically evacuated,Galu,0,0,0,1,0
+319,Liz,19,Samoa,33,18,8,0,6th voted out,Foa Foa,0,0,0,1,0
+320,Erik,19,Samoa,28,21,9,0,7th voted out,Galu,0,1,0,1,0
+321,Kelly,19,Samoa,25,24,10,0,8th voted out,Galu,0,1,0,1,0
+322,Laura,19,Samoa,39,27,11,0,9th voted out,Galu,2,1,0,1,0
+323,John,19,Samoa,25,30,12,0,10th voted out,Galu,1,1,0,1,0
+324,Dave,19,Samoa,38,31,13,0,11th voted out,Galu,0,1,0,1,0
+325,Monica,19,Samoa,25,33,14,0,12th voted out,Galu,0,1,0,1,0
+326,Shambo,19,Samoa,45,36,15,0,13th voted out,Galu,0,1,0,1,0
+327,Jaison,19,Samoa,28,37,16,0,14th voted out,Foa Foa,2,1,0,1,0
+328,Brett,19,Samoa,23,38,17,0,15th voted out,Galu,3,1,0,1,0
+329,Mick,19,Samoa,33,39,18,0,2nd runner-up,Foa Foa,1,0,1,1,0
+330,Russell H.,19,Samoa,36,39,19,0,Runner-up,Foa Foa,0,0,1,1,0
+331,Natalie,19,Samoa,26,39,20,1,Sole Survivor,Foa Foa,0,0,1,1,0
+332,Sugar,20,Heroes vs. Villains,30,3,1,0,1st voted out,Heroes,0,0,0,2,1
+333,Stephenie,20,Heroes vs. Villains,29,6,2,0,2nd voted out,Heroes,0,0,0,3,1
+334,Randy,20,Heroes vs. Villains,50,8,3,0,3rd voted out,Villains,0,0,0,2,1
+335,Cirie,20,Heroes vs. Villains,39,11,4,0,4th voted out,Heroes,0,0,0,3,1
+336,Tom,20,Heroes vs. Villains,45,14,5,0,5th voted out,Heroes,0,0,0,2,1
+337,Tyson,20,Heroes vs. Villains,30,15,6,0,6th voted out,Villains,0,0,0,2,1
+338,James,20,Heroes vs. Villains,32,15,7,0,7th voted out,Heroes,0,0,0,3,1
+339,Rob,20,Heroes vs. Villains,33,18,8,0,8th voted out,Villains,1,0,0,3,1
+340,Coach,20,Heroes vs. Villains,38,21,9,0,9th voted out,Villains,0,1,0,2,1
+341,Courtney,20,Heroes vs. Villains,28,24,10,0,10th voted out,Villains,0,1,0,2,1
+342,J.T.,20,Heroes vs. Villains,25,27,11,0,11th voted out,Heroes,0,1,0,2,1
+343,Amanda,20,Heroes vs. Villains,25,30,12,0,12th voted out,Heroes,0,1,0,3,1
+344,Candice,20,Heroes vs. Villains,26,31,13,0,13th voted out,Heroes,1,1,0,2,1
+345,Danielle,20,Heroes vs. Villains,28,33,14,0,14th voted out,Villains,1,1,0,2,1
+346,Rupert,20,Heroes vs. Villains,45,36,15,0,15th voted out,Heroes,0,1,0,3,1
+347,Colby,20,Heroes vs. Villains,35,37,16,0,16th voted out,Heroes,0,1,0,3,1
+348,Jerri,20,Heroes vs. Villains,38,38,17,0,17th voted out,Villains,1,1,0,3,1
+349,Russell,20,Heroes vs. Villains,36,39,18,0,2nd Runner-up,Villains,2,0,1,2,1
+350,Parvati,20,Heroes vs. Villains,26,39,19,0,Runner-up,Villains,3,0,1,3,1
+351,Sandra,20,Heroes vs. Villains,35,39,20,1,Sole Survivor,Villains,0,0,1,2,1
+352,Wendy,21,Nicaragua,48,3,1,0,1st voted out,Espada,0,0,0,1,0
+353,Shannon,21,Nicaragua,30,6,2,0,2nd voted out,La Flor,0,0,0,1,0
+354,Jimmy J.,21,Nicaragua,67,8,3,0,3rd voted out,Espada,0,0,0,1,0
+355,Jimmy T.,21,Nicaragua,48,11,4,0,4th voted out,Espada,0,0,0,1,0
+356,Tyrone,21,Nicaragua,42,14,5,0,5th voted out,Espada,0,0,0,1,0
+357,Kelly B.,21,Nicaragua,26,15,6,0,6th voted out,La Flor,0,0,0,1,0
+358,Yve,21,Nicaragua,41,15,7,0,7th voted out,Espada,0,0,0,1,0
+359,Jill,21,Nicaragua,43,18,8,0,8th voted out,Espada,1,0,0,1,0
+360,Alina,21,Nicaragua,23,22,9,0,9th voted out,La Flor,0,1,0,1,0
+361,Marty,21,Nicaragua,48,24,10,0,10th voted out,Espada,0,1,0,1,0
+362,Brenda,21,Nicaragua,27,27,11,0,11th voted out,La Flor,1,1,0,1,0
+363,NaOnka,21,Nicaragua,27,28,12,0,Quit,La Flor,0,1,0,1,0
+364,Kelly S.,21,Nicaragua,20,28,13,0,Quit,La Flor,0,1,0,1,0
+365,Benry,21,Nicaragua,24,32,14,0,12th voted out,La Flor,0,1,0,1,0
+366,Jane,21,Nicaragua,56,36,15,0,13th voted out,Espada,2,1,0,1,0
+367,Dan,21,Nicaragua,63,37,16,0,14th voted out,Espada,0,1,0,1,0
+368,Holly,21,Nicaragua,44,38,17,0,15th voted out,Espada,1,1,0,1,0
+369,Sash,21,Nicaragua,30,39,18,0,2nd runner-up,La Flor,1,0,1,1,0
+370,Chase,21,Nicaragua,24,39,19,0,Runner-up,La Flor,0,0,1,1,0
+371,Fabio,21,Nicaragua,21,39,20,1,Sole Survivor,La Flor,4,0,1,1,0
+372,Francesca,22,Redemption Island,36,3,1,0,1st voted out,Ometepe,0,0,0,1,0
+373,Russell,22,Redemption Island,37,8,3,0,3rd voted out,Zapatera,0,0,0,3,1
+374,Kristina,22,Redemption Island,46,11,4,0,4th voted out,Ometepe,0,0,0,1,0
+375,Krista,22,Redemption Island,25,13,5,0,5th voted out,Zapatera,0,0,0,1,0
+376,Stephanie,22,Redemption Island,26,16,6,0,6th voted out,Zapatera,0,0,0,1,0
+377,Sarita,22,Redemption Island,36,18,7,0,7th voted out,Zapatera,0,0,0,1,0
+378,Matt,22,Redemption Island,22,21,8,0,8th voted out,Ometepe,0,0,0,1,0
+379,Mike,22,Redemption Island,31,22,9,0,9th voted out,Zapatera,0,0,0,1,0
+380,David,22,Redemption Island,31,24,10,0,10th voted out,Zapatera,0,0,0,1,0
+381,Julie,22,Redemption Island,50,27,11,0,11th voted out,Zapatera,0,0,0,1,0
+382,Ralph,22,Redemption Island,45,30,12,0,12th voted out,Zapatera,0,0,0,1,0
+383,Steve,22,Redemption Island,51,30,13,0,13th voted out,Zapatera,0,0,0,1,0
+384,Grant,22,Redemption Island,29,35,15,0,15th voted out,Ometepe,2,0,0,1,0
+385,Andrea,22,Redemption Island,21,37,16,0,16th voted out,Ometepe,1,1,0,1,0
+386,Ashley,22,Redemption Island,25,38,17,0,17th voted out,Ometepe,2,1,0,1,0
+387,Natalie,22,Redemption Island,19,39,18,0,2nd runner-up,Ometepe,1,0,1,1,0
+388,Phillip,22,Redemption Island,52,39,19,0,Runner-up,Ometepe,0,0,1,1,0
+389,Rob,22,Redemption Island,34,39,20,1,Sole Survivor,Ometepe,4,0,1,4,1
+390,Semhar,23,South Pacific,24,3,1,0,1st voted out,Savaii,0,0,0,1,0
+391,Christine,23,South Pacific,39,5,2,0,2nd voted out,Upolu,0,0,0,1,0
+392,Papa Bear,23,South Pacific,48,8,3,0,3rd voted out,Savaii,0,0,0,1,0
+393,Stacey,23,South Pacific,44,11,4,0,4th voted out,Upolu,0,0,0,1,0
+394,Elyse,23,South Pacific,27,14,5,0,5th voted out,Savaii,0,0,0,1,0
+395,Mikayla,23,South Pacific,22,16,6,0,6th voted out,Upolu,0,0,0,1,0
+396,Keith,23,South Pacific,26,21,8,0,8th voted out,Savaii,0,0,0,1,0
+397,Jim,23,South Pacific,35,24,10,0,10th voted out,Savaii,1,0,0,1,0
+398,Dawn,23,South Pacific,41,27,11,0,11th voted out,Savaii,1,0,0,1,0
+399,Whitney,23,South Pacific,27,27,12,0,12th voted out,Savaii,1,0,0,1,0
+400,Cochran,23,South Pacific,24,30,13,0,13th voted out,Savaii,0,0,0,1,0
+401,Edna,23,South Pacific,35,32,14,0,14th voted out,Upolu,0,0,0,1,0
+402,Brandon,23,South Pacific,19,35,15,0,15th voted out,Upolu,1,0,0,1,0
+403,Rick,23,South Pacific,51,37,16,0,16th voted out,Upolu,0,1,0,1,0
+404,Ozzy,23,South Pacific,29,38,17,0,17th voted out,Savaii,2,1,0,3,1
+405,Albert,23,South Pacific,26,39,18,0,2nd runner-up,Upolu,1,0,1,1,0
+406,Coach,23,South Pacific,39,39,19,0,Runner-up,Upolu,1,0,1,3,1
+407,Sophie,23,South Pacific,22,39,20,1,Sole Survivor,Upolu,3,0,1,1,0
+408,Kourtney,24,One World,29,3,1,0,Medically evacuated,Salani,0,0,0,1,0
+409,Nina,24,One World,51,5,2,0,1st voted out,Salani,0,0,0,1,0
+410,Matt,24,One World,33,8,3,0,2nd voted out,Manono,0,0,0,1,0
+411,Bill,24,One World,28,11,4,0,3rd voted out,Manono,0,0,0,1,0
+412,Monica,24,One World,41,14,5,0,4th voted out,Salani,0,0,0,1,0
+413,Colton,24,One World,21,16,6,0,Medically evacuated,Manono,0,0,0,1,0
+414,Jonas,24,One World,37,20,7,0,5th voted out,Manono,0,1,0,1,0
+415,Michael,24,One World,30,22,8,0,6th voted out,Manono,0,1,0,1,0
+416,Jay,24,One World,25,25,9,0,7th voted out,Manono,1,1,0,1,0
+417,Leif,24,One World,27,27,10,0,8th voted out,Manono,0,1,0,1,0
+418,Troyzan,24,One World,50,30,11,0,9th voted out,Manono,2,1,0,1,0
+419,Kat,24,One World,22,33,12,0,10th voted out,Salani,0,1,0,1,0
+420,Tarzan,24,One World,64,36,13,0,11th voted out,Manono,0,1,0,1,0
+421,Alicia,24,One World,25,37,14,0,12th voted out,Salani,1,1,0,1,0
+422,Christina,24,One World,29,38,15,0,13th voted out,Salani,0,1,0,1,0
+423,Chelsea,24,One World,26,39,16,0,2nd runner-up,Salani,1,0,1,1,0
+424,Sabrina,24,One World,33,39,17,0,Runner-up,Salani,0,0,1,1,0
+425,Kim,24,One World,29,39,18,1,Sole Survivor,Salani,4,0,1,1,0
+426,Zane,25,Philippines,28,3,1,0,1st voted out,Matsing,0,0,0,1,0
+427,Roxy,25,Philippines,28,6,2,0,2nd voted out,Matsing,0,0,0,1,0
+428,Angie,25,Philippines,20,8,3,0,3rd voted out,Matsing,0,0,0,1,0
+429,Russell,25,Philippines,45,10,4,0,4th voted out,Matsing,0,0,0,2,1
+430,Dana,25,Philippines,32,12,5,0,Quit,Kalabaw,0,0,0,1,0
+431,Dawson,25,Philippines,28,13,6,0,5th voted out,Kalabaw,0,0,0,1,0
+432,Katie,25,Philippines,22,16,7,0,6th voted out,Kalabaw,0,0,0,1,0
+433,RC,25,Philippines,27,19,8,0,7th voted out,Tandang,0,1,0,1,0
+434,Jeff,25,Philippines,44,22,9,0,8th voted out,Kalabaw,0,1,0,1,0
+435,Artis,25,Philippines,53,25,10,0,9th voted out,Tandang,0,1,0,1,0
+436,Pete,25,Philippines,24,27,11,0,10th voted out,Tandang,0,1,0,1,0
+437,Jonathan,25,Philippines,50,30,12,0,11th voted out,Kalabaw,1,1,0,3,1
+438,Carter,25,Philippines,23,33,13,0,12th voted out,Kalabaw,2,1,0,1,0
+439,Abi-Maria,25,Philippines,32,36,14,0,13th voted out,Tandang,0,1,0,1,0
+440,Malcolm,25,Philippines,25,38,15,0,14th voted out,Matsing,2,1,0,1,0
+441,Lisa,25,Philippines,49,39,16,0,Co-runner-up,Tandang,0,0,1,1,0
+442,Michael,25,Philippines,50,39,17,0,Co-runner-up,Tandang,2,0,1,2,1
+443,Denise,25,Philippines,41,39,18,1,Sole Survivor,Matsing,1,0,1,1,0
+444,Francesca,26,Caramoan,38,3,1,0,1st voted out,Bikal,0,0,0,2,1
+445,Allie,26,Caramoan,25,5,2,0,2nd voted out,Gota,0,0,0,1,0
+446,Hope,26,Caramoan,23,7,3,0,3rd voted out,Gota,0,0,0,1,0
+447,Shamar,26,Caramoan,27,10,4,0,Medically evacuated,Gota,0,0,0,1,0
+448,Laura,26,Caramoan,23,10,5,0,4th voted out,Gota,0,0,0,1,0
+449,Brandon,26,Caramoan,20,13,6,0,5th voted out,Bikal,0,0,0,2,1
+450,Matt,26,Caramoan,38,16,7,0,6th voted out,Gota,0,0,0,1,0
+451,Julia,26,Caramoan,21,19,8,0,7th voted out,Gota,0,0,0,1,0
+452,Corinne,26,Caramoan,33,22,9,0,8th voted out,Bikal,0,0,0,2,1
+453,Michael,26,Caramoan,44,25,10,0,9th voted out,Gota,0,1,0,1,0
+454,Phillip,26,Caramoan,54,28,11,0,10th voted out,Bikal,0,1,0,2,1
+455,Malcolm,26,Caramoan,25,30,12,0,11th voted out,Bikal,0,1,0,2,1
+456,Reynold,26,Caramoan,30,31,13,0,12th voted out,Gota,1,1,0,1,0
+457,Andrea,26,Caramoan,23,33,14,0,13th voted out,Bikal,1,1,0,2,1
+458,Brenda,26,Caramoan,29,36,15,0,14th voted out,Bikal,1,1,0,2,1
+459,Erik,26,Caramoan,27,36,16,0,Medically evacuated,Bikal,1,1,0,2,1
+460,Eddie,26,Caramoan,23,38,17,0,15th voted out,Gota,0,1,0,1,0
+461,Sherri,26,Caramoan,41,39,18,0,Co-runner-up,Gota,0,0,1,1,0
+462,Dawn,26,Caramoan,42,39,19,0,Co-runner-up,Bikal,1,0,1,2,1
+463,Cochran,26,Caramoan,25,39,20,1,Sole Survivor,Bikal,4,0,1,2,1
+1,Candice,27,Blood vs. Water,30,1,2,0,2nd voted out,Galang,3,0,0,1,0
+465,Rupert,27,Blood vs. Water,49,1,3,0,Switched,Galang,0,0,0,4,1
+466,Marissa,27,Blood vs. Water,21,3,4,0,3rd voted out,Tadhana,0,0,0,1,0
+467,Rachel,27,Blood vs. Water,33,6,5,0,4th voted out,Tadhana,0,0,0,1,0
+468,Colton,27,Blood vs. Water,22,7,6,0,Quit,Galang,0,0,0,2,1
+469,John,27,Blood vs. Water,30,8,7,0,5th voted out,Tadhana,0,0,0,1,0
+470,Brad,27,Blood vs. Water,44,10,8,0,6th voted out,Tadhana,0,0,0,1,0
+471,Kat,27,Blood vs. Water,23,16,10,0,8th voted out,Galang,0,0,0,2,1
+472,Laura B.,27,Blood vs. Water,44,18,11,0,9th voted out,Tadhana,0,0,0,1,0
+473,Aras,27,Blood vs. Water,31,21,12,0,10th voted out,Galang,0,0,0,2,1
+474,Vytas,27,Blood vs. Water,33,22,13,0,11th voted out,Tadhana,1,0,0,1,0
+475,Laura M.,27,Blood vs. Water,43,26,15,0,13th voted out,Galang,0,0,0,2,1
+476,Caleb,27,Blood vs. Water,26,29,16,0,14th voted out,Tadhana,0,0,0,1,0
+477,Katie,27,Blood vs. Water,25,32,17,0,Eliminated,Tadhana,1,0,0,1,0
+478,Hayden,27,Blood vs. Water,27,35,18,0,15th voted out,Tadhana,0,0,0,1,0
+479,Ciera,27,Blood vs. Water,24,37,19,0,16th voted out,Tadhana,1,1,0,1,0
+480,Tina,27,Blood vs. Water,52,38,20,0,17th voted out,Galang,0,1,0,3,1
+481,Gervase,27,Blood vs. Water,43,39,21,0,2nd runner-up,Galang,1,0,1,2,1
+482,Monica,27,Blood vs. Water,42,39,22,0,Runner-up,Galang,3,0,1,2,1
+483,Tyson,27,Blood vs. Water,34,39,23,1,Sole Survivor,Galang,2,0,1,3,1
+484,David,28,Cagayan,45,3,1,0,1st voted out,Luzon,0,0,0,1,0
+485,Garrett,28,Cagayan,27,6,2,0,2nd voted out,Luzon,0,0,0,1,0
+486,Brice,28,Cagayan,27,8,3,0,3rd voted out,Solana,0,0,0,1,0
+487,J'Tia,28,Cagayan,31,11,4,0,4th voted out,Luzon,0,0,0,1,0
+488,Cliff,28,Cagayan,46,14,5,0,5th voted out,Aparri,0,0,0,1,0
+489,Lindsey,28,Cagayan,29,14,6,0,Quit,Aparri,0,0,0,1,0
+490,Alexis,28,Cagayan,21,16,7,0,6th voted out,Solana,0,0,0,1,0
+491,Sarah,28,Cagayan,29,19,8,0,7th voted out,Aparri,0,1,0,1,0
+492,Morgan,28,Cagayan,21,22,9,0,8th voted out,Solana,0,1,0,1,0
+493,LJ,28,Cagayan,34,25,10,0,9th voted out,Solana,0,1,0,1,0
+494,Jeremiah,28,Cagayan,34,28,11,0,10th voted out,Solana,0,1,0,1,0
+495,Jefra,28,Cagayan,22,30,12,0,11th voted out,Solana,0,1,0,1,0
+496,Tasha,28,Cagayan,37,33,13,0,12th voted out,Luzon,3,1,0,1,0
+497,Trish,28,Cagayan,48,36,14,0,13th voted out,Aparri,0,1,0,1,0
+498,Spencer,28,Cagayan,21,37,15,0,14th voted out,Luzon,3,1,0,1,0
+499,Kass,28,Cagayan,41,38,16,0,15th voted out,Luzon,1,1,0,1,0
+500,Woo,28,Cagayan,29,39,17,0,Runner-up,Aparri,1,0,1,1,0
+501,Tony,28,Cagayan,39,39,18,1,Sole Survivor,Aparri,0,0,1,1,0
+502,Nadiya,29,San Juan del Sur,28,3,1,0,1st voted out,Coyopa,0,0,0,1,0
+503,Val,29,San Juan del Sur,35,6,2,0,2nd voted out,Coyopa,0,0,0,1,0
+504,John,29,San Juan del Sur,39,8,3,0,3rd voted out,Coyopa,0,0,0,1,0
+505,Drew,29,San Juan del Sur,25,10,4,0,4th voted out,Hunahpu,0,0,0,1,0
+506,Kelley,29,San Juan del Sur,28,13,5,0,5th voted out,Hunahpu,0,0,0,1,0
+507,Dale,29,San Juan del Sur,55,15,6,0,6th voted out,Coyopa,0,0,0,1,0
+508,Julie,29,San Juan del Sur,34,18,7,0,Quit,Hunahpu,0,0,0,1,0
+509,Josh,29,San Juan del Sur,32,21,8,0,7th voted out,Coyopa,0,1,0,1,0
+510,Jeremy,29,San Juan del Sur,36,24,9,0,8th voted out,Hunahpu,1,1,0,1,0
+511,Wes,29,San Juan del Sur,23,26,10,0,9th voted out,Coyopa,0,1,0,1,0
+512,Reed,29,San Juan del Sur,31,29,11,0,10th voted out,Hunahpu,1,1,0,1,0
+513,Alec,29,San Juan del Sur,22,32,12,0,11th voted out,Coyopa,0,1,0,1,0
+514,Jon,29,San Juan del Sur,26,35,13,0,12th voted out,Hunahpu,1,1,0,1,0
+515,Baylor,29,San Juan del Sur,20,37,14,0,13th voted out,Coyopa,1,1,0,1,0
+516,Keith,29,San Juan del Sur,53,38,15,0,14th voted out,Hunahpu,3,1,0,1,0
+517,Missy,29,San Juan del Sur,47,39,16,0,2nd runner-up,Hunahpu,0,0,1,1,0
+518,Jaclyn,29,San Juan del Sur,25,39,17,0,Runner-up,Coyopa,1,0,1,1,0
+519,Natalie,29,San Juan del Sur,28,39,18,1,Sole Survivor,Hunahpu,1,0,1,1,0
+520,So,30,Worlds Apart,31,3,1,0,1st voted out,Masaya,0,0,0,1,0
+521,Vince,30,Worlds Apart,32,6,2,0,2nd voted out,Nagarote,0,0,0,1,0
+522,Nina,30,Worlds Apart,51,8,3,0,3rd voted out,Nagarote,0,0,0,1,0
+523,Lindsey,30,Worlds Apart,24,11,4,0,4th voted out,Escameca,0,0,0,1,0
+524,Max,30,Worlds Apart,37,14,5,0,5th voted out,Masaya,0,0,0,1,0
+525,Joaquin,30,Worlds Apart,27,16,6,0,6th voted out,Masaya,0,0,0,1,0
+526,Kelly,30,Worlds Apart,44,19,7,0,7th voted out,Escameca,0,0,0,1,0
+527,Hali,30,Worlds Apart,25,22,8,0,8th voted out,Nagarote,0,1,0,1,0
+528,Joe,30,Worlds Apart,25,24,9,0,9th voted out,Nagarote,2,1,0,1,0
+529,Jenn,30,Worlds Apart,22,27,10,0,10th voted out,Nagarote,0,1,0,1,0
+530,Shirin,30,Worlds Apart,31,29,11,0,11th voted out,Masaya,0,1,0,1,0
+531,Tyler,30,Worlds Apart,33,32,12,0,12th voted out,Masaya,1,1,0,1,0
+532,Dan,30,Worlds Apart,47,35,13,0,13th voted out,Escameca,0,1,0,1,0
+533,Sierra,30,Worlds Apart,27,37,14,0,14th voted out,Escameca,0,1,0,1,0
+534,Rodney,30,Worlds Apart,24,38,15,0,15th voted out,Escameca,0,1,0,1,0
+535,Will,30,Worlds Apart,41,39,16,0,Co-runner-up,Nagarote,0,0,1,1,0
+536,Carolyn,30,Worlds Apart,52,39,17,0,Co-runner-up,Masaya,2,0,1,1,0
+537,Mike,30,Worlds Apart,38,39,18,1,Sole Survivor,Escameca,5,0,1,1,0
+538,Vytas,31,Cambodia,35,3,1,0,1st voted out,Ta Keo,0,0,0,2,1
+539,Shirin,31,Cambodia,32,6,2,0,2nd voted out,Ta Keo,0,0,0,2,1
+540,Peih-Gee,31,Cambodia,37,9,3,0,3rd voted out,Ta Keo,0,0,0,2,1
+541,Jeff,31,Cambodia,49,11,4,0,4th voted out,Ta Keo,0,0,0,2,1
+542,Monica,31,Cambodia,30,13,5,0,5th voted out,Bayon,0,0,0,2,1
+543,Terry,31,Cambodia,55,13,6,0,WithdrewFamily,Ta Keo,0,0,0,2,1
+544,Woo,31,Cambodia,31,16,7,0,6th voted out,Ta Keo,0,0,0,2,1
+545,Kass,31,Cambodia,43,19,8,0,7th voted out,Bayon,0,1,0,2,1
+546,Andrew,31,Cambodia,51,21,9,0,8th voted out,Bayon,0,1,0,2,1
+547,Kelly,31,Cambodia,37,24,10,0,9th voted out,Ta Keo,0,1,0,2,1
+548,Ciera,31,Cambodia,26,26,11,0,10th voted out,Bayon,0,1,0,2,1
+549,Stephen,31,Cambodia,36,29,12,0,11th voted out,Bayon,0,1,0,2,1
+550,Joe,31,Cambodia,26,32,13,0,12th voted out,Bayon,4,1,0,2,1
+551,Abi-Maria,31,Cambodia,35,35,14,0,13th voted out,Ta Keo,0,1,0,2,1
+552,Kimmi,31,Cambodia,42,36,15,0,14th voted out,Bayon,0,1,0,2,1
+553,Keith,31,Cambodia,54,37,16,0,15th voted out,Bayon,1,1,0,2,1
+554,Kelley,31,Cambodia,29,38,17,0,16th voted out,Ta Keo,2,1,0,2,1
+555,Spencer,31,Cambodia,22,39,18,0,Co-runner-up,Ta Keo,3,0,1,2,1
+556,Tasha,31,Cambodia,38,39,19,0,Co-runner-up,Bayon,0,0,1,2,1
+557,Jeremy,31,Cambodia,37,39,20,1,Sole Survivor,Bayon,1,0,1,2,1
+558,Darnell,32,Kaôh Rōng,27,3,1,0,1st voted out,To Tang,0,0,0,1,0
+559,Jennifer,32,Kaôh Rōng,38,6,2,0,2nd voted out,To Tang,0,0,0,1,0
+560,Liz,32,Kaôh Rōng,27,8,3,0,3rd voted out,Chan Loh,0,0,0,1,0
+561,Caleb,32,Kaôh Rōng,27,9,4,0,Medically evacuated,Gondol,0,0,0,1,0
+562,Alecia,32,Kaôh Rōng,24,11,5,0,4th voted out,To Tang,0,0,0,1,0
+563,Anna,32,Kaôh Rōng,26,13,6,0,5th voted out,Gondol,0,0,0,1,0
+564,Peter,32,Kaôh Rōng,34,16,7,0,6th voted out,Chan Loh,0,0,0,1,0
+565,Neal,32,Kaôh Rōng,38,19,8,0,Medically evacuated,Chan Loh,0,0,0,1,0
+566,Nick,32,Kaôh Rōng,30,22,9,0,7th voted out,Gondol,1,1,0,1,0
+567,Debbie,32,Kaôh Rōng,49,24,10,0,8th voted out,Chan Loh,0,1,0,1,0
+568,Scot,32,Kaôh Rōng,40,27,11,0,9th voted out,To Tang,0,1,0,1,0
+569,Julia,32,Kaôh Rōng,19,29,12,0,10th voted out,Gondol,2,1,0,1,0
+570,Jason,32,Kaôh Rōng,31,32,13,0,11th voted out,To Tang,1,1,0,1,0
+571,Joe,32,Kaôh Rōng,71,34,14,0,Medically evacuated,Chan Loh,0,1,0,1,0
+572,Cydney,32,Kaôh Rōng,22,37,15,0,12th voted out,To Tang,1,1,0,1,0
+573,Tai,32,Kaôh Rōng,51,39,16,0,2nd runner-up,Gondol,1,0,1,1,0
+574,Aubry,32,Kaôh Rōng,29,39,17,0,Runner-up,Chan Loh,0,0,1,1,0
+575,Michele,32,Kaôh Rōng,24,39,18,1,Sole Survivor,Gondol,2,0,1,1,0
+576,Rachel,33,Millennials vs. Gen X,37,4,1,0,1st voted out,Takali,0,0,0,1,0
+577,Mari,33,Millennials vs. Gen X,31,7,2,0,2nd voted out,Vanua,0,0,0,1,0
+578,Paul,33,Millennials vs. Gen X,52,10,3,0,3rd voted out,Takali,0,0,0,1,0
+579,Lucy,33,Millennials vs. Gen X,42,12,4,0,4th voted out,Takali,0,0,0,1,0
+580,CeCe,33,Millennials vs. Gen X,39,15,5,0,5th voted out,Takali,0,0,0,1,0
+581,Figgy,33,Millennials vs. Gen X,23,18,6,0,6th voted out,Vanua,0,0,0,1,0
+582,Michaela,33,Millennials vs. Gen X,25,20,7,0,7th voted out,Vanua,0,0,0,1,0
+583,Michelle,33,Millennials vs. Gen X,28,23,8,0,8th voted out,Vanua,0,1,0,1,0
+584,Taylor,33,Millennials vs. Gen X,24,25,9,0,9th voted out,Vanua,0,1,0,1,0
+585,Chris,33,Millennials vs. Gen X,38,28,10,0,10th voted out,Takali,0,1,0,1,0
+586,Jessica,33,Millennials vs. Gen X,37,30,11,0,Eliminated,Takali,0,1,0,1,0
+587,Zeke,33,Millennials vs. Gen X,28,33,12,0,12th voted out,Vanua,0,1,0,1,0
+588,Will,33,Millennials vs. Gen X,18,34,13,0,13th voted out,Vanua,1,1,0,1,0
+589,Sunday,33,Millennials vs. Gen X,45,35,14,0,14th voted out,Takali,0,1,0,1,0
+590,Jay,33,Millennials vs. Gen X,27,36,15,0,15th voted out,Vanua,2,1,0,1,0
+591,Bret,33,Millennials vs. Gen X,42,37,16,0,16th voted out,Takali,0,1,0,1,0
+592,David,33,Millennials vs. Gen X,42,38,17,0,17th voted out,Takali,2,1,0,1,0
+593,Hannah,33,Millennials vs. Gen X,24,39,18,0,Co-runner-up,Vanua,0,0,1,1,0
+594,Ken,33,Millennials vs. Gen X,33,39,19,0,Co-runner-up,Takali,4,0,1,1,0
+595,Adam,33,Millennials vs. Gen X,25,39,20,1,Sole Survivor,Vanua,1,0,1,1,0
+596,Ciera,34,Game Changers,27,3,1,0,1st voted out,Mana,0,0,0,3,1
+597,Tony,34,Game Changers,42,6,2,0,2nd voted out,Mana,0,0,0,2,1
+598,Caleb,34,Game Changers,28,9,3,0,3rd voted out,Mana,0,0,0,2,1
+599,Malcolm,34,Game Changers,29,11,4,0,4th voted out,Mana,0,0,0,3,1
+600,J.T.,34,Game Changers,31,13,5,0,5th voted out,Nuku,0,0,0,3,1
+601,Sandra,34,Game Changers,41,16,6,0,6th voted out,Mana,0,0,0,3,1
+602,Jeff,34,Game Changers,50,18,7,0,7th voted out,Mana,0,0,0,3,1
+603,Hali,34,Game Changers,26,21,8,0,8th voted out,Mana,0,1,0,2,1
+604,Ozzy,34,Game Changers,34,24,9,0,9th voted out,Nuku,0,1,0,4,1
+605,Debbie,34,Game Changers,51,26,10,0,10th voted out,Nuku,1,1,0,2,1
+606,Zeke,34,Game Changers,28,29,11,0,11th voted out,Nuku,0,1,0,2,1
+607,Sierra,34,Game Changers,29,32,12,0,12th voted out,Nuku,0,1,0,2,1
+608,Andrea,34,Game Changers,27,33,13,0,13th voted out,Nuku,2,1,0,3,1
+609,Michaela,34,Game Changers,25,35,14,0,14th voted out,Mana,0,1,0,2,1
+610,Cirie,34,Game Changers,45,36,15,0,Eliminated,Nuku,0,1,0,4,1
+611,Aubry,34,Game Changers,30,37,16,0,15th voted out,Mana,1,1,0,2,1
+612,Tai,34,Game Changers,52,38,17,0,16th voted out,Nuku,1,1,0,2,1
+613,Troyzan,34,Game Changers,54,39,18,0,2nd runner-up,Mana,1,0,1,2,1
+614,Brad,34,Game Changers,47,39,19,0,Runner-up,Nuku,5,0,1,2,1
+615,Sarah,34,Game Changers,32,39,20,1,Sole Survivor,Nuku,0,0,1,2,1
+616,Katrina,35,Heroes vs. Healers vs. Hustlers,46,3,1,0,1st voted out,Levu,0,0,0,1,0
+617,Simone,35,Heroes vs. Healers vs. Hustlers,25,6,2,0,2nd voted out,Yawa,0,0,0,1,0
+618,Patrick,35,Heroes vs. Healers vs. Hustlers,24,8,3,0,3rd voted out,Yawa,0,0,0,1,0
+619,Alan,35,Heroes vs. Healers vs. Hustlers,32,11,4,0,4th voted out,Levu,0,0,0,1,0
+620,Roark,35,Heroes vs. Healers vs. Hustlers,27,14,5,0,5th voted out,Soko,0,0,0,1,0
+621,Ali,35,Heroes vs. Healers vs. Hustlers,24,16,6,0,6th voted out,Yawa,0,0,0,1,0
+622,Jessica,35,Heroes vs. Healers vs. Hustlers,29,19,7,0,7th voted out,Soko,0,0,0,1,0
+623,Desi,35,Heroes vs. Healers vs. Hustlers,27,21,8,0,8th voted out,Soko,1,1,0,1,0
+624,Cole,35,Heroes vs. Healers vs. Hustlers,24,24,9,0,9th voted out,Soko,1,1,0,1,0
+625,JP,35,Heroes vs. Healers vs. Hustlers,28,27,10,0,10th voted out,Levu,0,1,0,1,0
+626,Joe,35,Heroes vs. Healers vs. Hustlers,34,30,11,0,11th voted out,Soko,0,1,0,1,0
+627,Lauren,35,Heroes vs. Healers vs. Hustlers,35,33,12,0,12th voted out,Yawa,1,1,0,1,0
+628,Ashley,35,Heroes vs. Healers vs. Hustlers,26,36,13,0,13th voted out,Levu,2,1,0,1,0
+629,Mike,35,Heroes vs. Healers vs. Hustlers,43,37,14,0,14th voted out,Soko,0,1,0,1,0
+630,Devon,35,Heroes vs. Healers vs. Hustlers,23,38,15,0,Eliminated,Yawa,0,1,0,1,0
+631,Ryan,35,Heroes vs. Healers vs. Hustlers,23,39,16,0,2nd runner-up,Yawa,0,0,1,1,0
+632,Chrissy,35,Heroes vs. Healers vs. Hustlers,46,39,17,0,Runner-up,Levu,4,0,1,1,0
+633,Ben,35,Heroes vs. Healers vs. Hustlers,34,39,18,1,Sole Survivor,Levu,0,0,1,1,0
+634,Gonzalez,36,Ghost Island,26,3,1,0,1st voted out,Malolo,0,0,0,1,0
+635,Jacob,36,Ghost Island,22,6,2,0,2nd voted out,Malolo,0,0,0,1,0
+636,Morgan,36,Ghost Island,29,9,3,0,3rd voted out,Naviti,0,0,0,1,0
+637,Brendan,36,Ghost Island,40,12,4,0,4th voted out,Malolo,0,0,0,1,0
+638,Stephanie,36,Ghost Island,34,14,5,0,5th voted out,Malolo,0,0,0,1,0
+639,James,36,Ghost Island,24,17,6,0,6th voted out,Malolo,0,0,0,1,0
+640,Bradley,36,Ghost Island,26,19,7,0,7th voted out,Naviti,0,0,0,1,0
+641,Chris,36,Ghost Island,27,22,8,0,8th voted out,Naviti,0,1,0,1,0
+642,Libby,36,Ghost Island,24,25,9,0,9th voted out,Malolo,0,1,0,1,0
+643,Desiree,36,Ghost Island,21,27,10,0,10th voted out,Naviti,0,1,0,1,0
+644,Jenna,36,Ghost Island,23,29,11,0,11th voted out,Malolo,0,1,0,1,0
+645,Michael,36,Ghost Island,18,29,12,0,12th voted out,Malolo,0,1,0,1,0
+646,Chelsea,36,Ghost Island,25,32,13,0,13th voted out,Naviti,2,1,0,1,0
+647,Kellyn,36,Ghost Island,30,35,14,0,14th voted out,Naviti,1,1,0,1,0
+648,Sebastian,36,Ghost Island,22,36,15,0,15th voted out,Naviti,0,1,0,1,0
+649,Donathan,36,Ghost Island,25,37,16,0,16th voted out,Malolo,0,1,0,1,0
+650,Angela,36,Ghost Island,42,38,17,0,Eliminated,Naviti,1,1,0,1,0
+651,Laurel,36,Ghost Island,29,39,18,0,2nd runner-up,Malolo,1,1,1,1,0
+652,Domenick,36,Ghost Island,38,39,19,0,Runner-up,Naviti,3,0,1,1,0
+653,Wendell,36,Ghost Island,33,39,20,1,Sole Survivor,Naviti,2,0,1,1,0
+654,Pat,37,David vs. Goliath,41,3,1,0,Medically evacuated,David,0,0,0,1,0
+655,Jessica,37,David vs. Goliath,19,6,2,0,1st voted out,David,0,0,0,1,0
+656,Jeremy,37,David vs. Goliath,40,9,3,0,2nd voted out,Goliath,0,0,0,1,0
+657,Bi,37,David vs. Goliath,28,10,4,0,Quit,David,0,0,0,1,0
+658,Natalia,37,David vs. Goliath,26,11,5,0,3rd voted out,Goliath,0,0,0,1,0
+659,Natalie,37,David vs. Goliath,57,15,6,0,4th voted out,Goliath,0,0,0,1,0
+660,Lyrsa,37,David vs. Goliath,36,17,7,0,5th voted out,David,0,0,0,1,0
+661,Elizabeth,37,David vs. Goliath,31,20,8,0,6th voted out,David,0,1,0,1,0
+662,John,37,David vs. Goliath,38,22,9,0,7th voted out,Goliath,0,1,0,1,0
+663,Dan,37,David vs. Goliath,28,25,10,0,8th voted out,Goliath,1,1,0,1,0
+664,Alec,37,David vs. Goliath,24,28,11,0,9th voted out,Goliath,1,1,0,1,0
+665,Carl,37,David vs. Goliath,41,30,12,0,10th voted out,David,0,1,0,1,0
+666,Gabby,37,David vs. Goliath,25,32,13,0,11th voted out,David,0,1,0,1,0
+667,Christian,37,David vs. Goliath,32,35,14,0,12th voted out,David,1,1,0,1,0
+668,Davie,37,David vs. Goliath,30,36,15,0,13th voted out,David,1,1,0,1,0
+669,Alison,37,David vs. Goliath,28,37,16,0,14th voted out,Goliath,1,1,0,1,0
+670,Kara,37,David vs. Goliath,30,38,17,0,Eliminated,Goliath,1,1,0,1,0
+671,Angelina,37,David vs. Goliath,28,39,18,0,2nd runner-up,Goliath,0,0,1,1,0
+672,Mike,37,David vs. Goliath,47,39,19,0,Runner-up,Goliath,1,0,1,1,0
+673,Nick,37,David vs. Goliath,27,39,20,1,Sole Survivor,David,2,0,1,1,0
+674,Reem,38,Edge of Extinction,46,3,1,0,1st voted out,Manu,0,1,0,1,0
+675,Keith,38,Edge of Extinction,19,6,2,0,2nd voted out,Manu,0,0,0,1,0
+676,Aubry,38,Edge of Extinction,32,13,5,0,5th voted out,Kama,0,1,0,3,1
+677,Wendy,38,Edge of Extinction,25,16,6,0,6th voted out,Manu,0,0,0,1,0
+678,Joe,38,Edge of Extinction,29,19,7,0,7th voted out,Kama,0,1,0,3,1
+679,Eric,38,Edge of Extinction,34,22,8,0,8th voted out,Kama,0,1,0,1,0
+680,Julia,38,Edge of Extinction,25,23,9,0,9th voted out,Kama,0,1,0,1,0
+681,David,38,Edge of Extinction,44,25,10,0,10th voted out,Manu,0,1,0,2,1
+682,Kelley,38,Edge of Extinction,32,27,11,0,11th voted out,Manu,0,1,0,3,1
+683,Wardog,38,Edge of Extinction,38,29,12,0,12th voted out,Manu,0,1,0,1,0
+684,Ron,38,Edge of Extinction,45,31,13,0,13th voted out,Kama,0,1,0,1,0
+685,Aurora,38,Edge of Extinction,32,34,14,0,14th voted out,Kama,2,1,0,1,0
+686,Victoria,38,Edge of Extinction,23,36,15,0,15th voted out,Kama,0,1,0,1,0
+687,Lauren,38,Edge of Extinction,21,37,16,0,16th voted out,Manu,0,1,0,1,0
+688,Rick,38,Edge of Extinction,33,38,17,0,Eliminated,Manu,4,1,0,1,0
+689,Julie,38,Edge of Extinction,46,39,18,0,2nd runner-up,Kama,2,0,1,1,0
+690,Gavin,38,Edge of Extinction,23,39,19,0,Runner-up,Kama,2,0,1,1,0
+691,Chris,38,Edge of Extinction,25,39,20,1,Sole Survivor,Manu,1,0,1,1,0
+692,Ronnie,39,Island of the Idols,36,3,1,0,1st voted out,Lairo,0,0,0,1,0
+693,Molly,39,Island of the Idols,27,6,2,0,2nd voted out,Vokai,0,0,0,1,0
+694,Vince,39,Island of the Idols,27,8,3,0,3rd voted out,Lairo,0,0,0,1,0
+695,Chelsea,39,Island of the Idols,27,11,4,0,4th voted out,Lairo,0,0,0,1,0
+696,Tom,39,Island of the Idols,60,14,5,0,5th voted out,Lairo,0,0,0,1,0
+697,Jason,39,Island of the Idols,32,16,6,0,6th voted out,Vokai,0,0,0,1,0
+698,Jack,39,Island of the Idols,23,19,7,0,7th voted out,Vokai,0,1,0,1,0
+699,Kellee,39,Island of the Idols,29,22,8,0,8th voted out,Vokai,0,1,0,1,0
+700,Jamal,39,Island of the Idols,33,24,9,0,9th voted out,Vokai,0,1,0,1,0
+701,Aaron,39,Island of the Idols,36,27,10,0,10th voted out,Lairo,2,1,0,1,0
+702,Missy,39,Island of the Idols,24,27,11,0,11th voted out,Lairo,0,1,0,1,0
+703,Elizabeth,39,Island of the Idols,26,30,12,0,12th voted out,Lairo,0,1,0,1,0
+704,Karishma,39,Island of the Idols,37,32,13,0,13th voted out,Lairo,0,1,0,1,0
+705,Elaine,39,Island of the Idols,41,35,14,0,14th voted out,Lairo,1,1,0,1,0
+706,Dan,39,Island of the Idols,48,36,15,0,Ejected,Vokai,0,0,0,1,0
+707,Janet,39,Island of the Idols,59,37,16,0,15th voted out,Vokai,0,1,0,1,0
+708,Lauren,39,Island of the Idols,28,38,17,0,Eliminated,Vokai,1,1,0,1,0
+709,Noura,39,Island of the Idols,36,39,18,0,2nd runner-up,Vokai,3,0,1,1,0
+710,Dean,39,Island of the Idols,28,39,19,0,Runner-up,Lairo,2,0,1,1,0
+711,Tommy,39,Island of the Idols,26,39,20,1,Sole Survivor,Vokai,0,0,1,1,0
+1,Amber,40,Winners at War,40,3,2,0,2nd voted out,Dakal,3,1,0,1,0
+713,Danni,40,Winners at War,43,6,3,0,3rd voted out,Sele,0,1,0,2,1
+714,Ethan,40,Winners at War,45,9,4,0,4th voted out,Sele,0,1,0,3,1
+715,Rob,40,Winners at War,43,14,6,0,6th voted out,Sele,0,1,0,5,1
+716,Parvati,40,Winners at War,36,16,7,0,7th voted out,Sele,0,1,0,4,1
+717,Sandra,40,Winners at War,44,16,8,0,8th voted out,Dakal,0,0,0,4,1
+718,Yul,40,Winners at War,44,18,9,0,9th voted out,Dakal,0,1,0,2,1
+719,Wendell,40,Winners at War,35,21,10,0,10th voted out,Dakal,0,1,0,2,1
+720,Adam,40,Winners at War,28,23,11,0,11th voted out,Sele,0,1,0,2,1
+721,Tyson,40,Winners at War,39,25,12,0,12th voted out,Dakal,0,1,0,4,1
+722,Sophie,40,Winners at War,29,28,13,0,13th voted out,Dakal,0,1,0,2,1
+1,Kim,40,Winners at War,36,29,14,0,14th voted out,Dakal,2,1,0,1,0
+724,Jeremy,40,Winners at War,41,31,15,0,15th voted out,Sele,1,1,0,3,1
+725,Nick,40,Winners at War,28,34,16,0,16th voted out,Dakal,1,1,0,2,1
+726,Denise,40,Winners at War,48,36,17,0,17th voted out,Sele,2,1,0,2,1
+727,Ben,40,Winners at War,36,37,18,0,18th voted out,Sele,0,1,0,2,1
+728,Sarah,40,Winners at War,34,38,19,0,Eliminated,Dakal,0,1,0,3,1
+729,Michele,40,Winners at War,29,39,20,0,2nd runner-up,Sele,2,0,1,2,1
+730,Natalie,40,Winners at War,33,39,21,0,Runner-up,Sele,1,0,1,2,1
+731,Tony,40,Winners at War,45,39,22,1,Sole Survivor,Dakal,4,0,1,3,1

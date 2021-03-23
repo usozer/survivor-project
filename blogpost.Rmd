@@ -7,6 +7,10 @@ output: pdf_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(eval=FALSE, echo = TRUE)
+library(survivoR)
+library(tidyverse)
+
+df <- read_csv("df.csv")
 ```
 
 # Motivation
@@ -25,15 +29,136 @@ The general consensus among the fans as well as the previous castaways is that t
 
 # II. Descriptive statistics, feature engineering
 
-Data was obtained from ```survivoR``` package in R, available at the public Github repo [_doehm/survivoR_](https://github.com/doehm/survivoR).
+Data was obtained from ```survivoR``` package in R, available at the public Github repo [**doehm/survivoR**](https://github.com/doehm/survivoR).
 
+### Primary features
+
+Here are the primary features that I considered:
+
+* **Age**: Instead of using raw age, I took Z-scores of ages within each season. So it would be more accurately called 'relative age within season'.
+
+* **Immunity idols won** (`necklaces`): This was one of the variables I was personally curious about, because there have been winners that were very dominant in the challenges and won lots of immunity idols, but many winners famously have won without getting a single immunity idol (one particular castaway managed it twice).
+
+* **Appearance**: Many previous contestants return to play other seasons, and being a returning player might influence jury's decision to award you with the title, depending on if they view it positively or not.
+
+* Date of final tribal council: I have access to the dates that each season's jury would be making their decisions (day 39 of filming) to control for a seasonal effect, but for now I did not add this in the model.
+
+
+
+```{r, include=TRUE, eval=TRUE, echo=TRUE, fig.height=2.5, fig.width=4}
+df %>% 
+  mutate(relevance=case_when(jury==1 ~ "jury",
+                             ftc==1 ~ "ftc")) %>% 
+  filter(!is.na(relevance)) %>% 
+  ggplot(aes(age)) + geom_density(aes(color = relevance)) + 
+  labs(title = "The jury and the finalists have the same age distribution") +
+  theme(legend.position = "bottom")
+```
+
+
+### Derived features
 
 
 
 # III. Modeling
 
-# IV. Bootstrap estimates
+```{r, include=TRUE}
+library(gbm)
 
-# V. Clustering
+gbm(winner~., data=train, distribution = "bernoulli",
+                          n.trees=1000, 
+                          shrinkage=0.111, 
+                          interaction.depth=2, 
+                          bag.fraction = .5, 
+                          n.minobsinnode = 2,
+                          cv.folds=10)
+```
+
+
+
+```{r, include=TRUE}
+library(nnet)
+
+nnet(winner~., data=train, size=2, decay=0.037, linout=F, 
+                           maxit=1000, skip=FALSE)
+```
+
+
+# IV. Clustering
+
+Just for the fun of it, since I have all this normalized data now, I decided to see if I can come up with a cluster solution that could help me gain some insight as to how I can group these finalists together.
+
+K-means clustering gave solutions that maximized the F-score at $K=4$.
+
+
+
+# V. Bootstrap estimates
+
+Now that I have my model tuned, I can repeat this a bunch of times! For each season, I will generate 10000 predictions of who the winner is going to be, with a model trained on a resampling with replacement of the 39 other seasons. That is a whopping 400,000 neural networks fit! Thankfully I was able to set up this code to run on the MSiA servers overnight.
+
+```{r, include=TRUE}
+no.reps <- 10000
+yhat=matrix(0,105,no.reps)
+
+for (k in 1:40) {
+  test_ind <- filter(df_norm, season == k) %>% pull(sid)
+  
+  for (i in 1:no.reps) {
+    seasons <- sample((1:40)[-k], 39, replace=TRUE)
+    
+    train <- data.frame()
+    for (a in seasons) train <- rbind(train, filter(df_norm, season==a))
+    train <- train[,4:11]
+    
+    out <- nnet(winner~., size=2, data=train, linout=F, maxit=1000, 
+                          decay=0.037, skip=FALSE, trace=FALSE)
+    yhat[test_ind,i] <- generateWinner(k, out, type="raw")
+  }
+}
+```
+
+Winner                 Season                   Predicted%
+----------------   -----------------------   ----------------
+Chris Daugherty       9: Vanuatu                91.6
+Ethan Zohn            3: Africa                 88.0
+Jenna Morasca         6: The Amazon             87.2
+Sandra Diaz-Twine     7: Pearl Islands          82.0
+J.T. Thomas           18: The Tocantins         79.9
+-----------------   -----------------------   ----------------
+
+
+Winner                 Season                               Predicted%
+----------------   ---------------------------------   ----------------
+Jeremy Collins      31: Cambodia - Second Chance               4.5
+Yul Kwon            13: Cook Islands                        8.7
+Tony Vlachos        28: Cagayan                           12.7
+Bob Crowley         17: Gabon                           13.3
+Richard Hatch       1: Borneo                           14.1
+-----------------   -------------------------------   ----------------
+
+How should we interpret these results? The way I look at it is, since the predictions for each season are done using a model trained on the other 39, a high `predicted%` indicates that the way the finalist played "a textbook game". The model says Chris from Vanuatu or Ethan from Africa had a gamestyle possibly similar to those we saw before, and the previous contestants that played like they did usually won.
+
+For Jeremy and Yul, the opposite. They were possibly in the finals with a textbook contestant, and the model saw Jeremy winning only 450 out of 10000 simulations of the season. Against all odds, these winners were able to snatch the title in the end.
+
+Another interesting table to look at is the non-winners with the highest `predicted%`.
+
+Non-winner finalist                 Season                      Predicted%
+---------------------   ---------------------------------   ----------------
+Spencer Bledsoe             31: Cambodia - Second Chance           91.5
+Woo Hwang                  28: Cagayan                             87.3
+Kelly Wiglesworth             1: Borneo                            85.9
+Sugar Kiper                   17: Gabon                            83.9
+Colby Donaldson               2: The Australian Outback            76.2
+---------------------   ----------------------------------   ----------------
+
+The model says these shoo-ins could not convince the jury. Kelly and Colby came to the end with lots of immunity idols won along the way, but they lost. For Spencer and Woo, it is hard to tell. Woo was likely favored due to the fact that he was in the majority vote most of the time, and Spencer was relatively young at 23 when he played in *Season 31: Cambodia - Second Chance*, a returning player season with most contestants in their 30s and 40s.
+
+
+<!-- Tableau plot with seasonal marginal difference and whether I got it right or not -->
+
 
 # Conclusions
+
+This exercise was less about building the best predictive model to help me hit the jackpot at `bets.com` for season 41, and more about coming to understand various intricacies of gameplay and strategy within the realm of my favorite TV show. Normally, I don't care much to interpret what a statistical model predicts a historical datapoint, but in the case of this particular dataset, one datapoint is a 13-episode season with story arcs, big personalities and iconic challenges, so reviewing the output of my n-fold cross validation was actually enjoyable for once. I feel like I gained some understanding as to what some past winners had to set them apart from the rest, and how each of these winners fit in with each other.
+
+In any case, you can find me watching Survivor in my Engelhart apartment until I finish all 40 seasons.
