@@ -3,6 +3,7 @@ library(tidyverse)
 library(gbm)
 library(nnet)
 library(randomForest)
+library(ALEPlot)
 
 setwd("~/SurvivorPred")
 source("2-1_fns_normalized.R")
@@ -159,13 +160,29 @@ misclass[1,]=apply(yhat,2,function(x) sum(x != y)/length(x)); misclass
 
 ##############################################################
 
-#k-nn
+# Final training
+
+train <- df_norm[,-(1:3)]
 
 
+final_fit <- nnet(winner~., size=2, data=train, linout=T, 
+                  maxit=1000, decay=0.037, skip=FALSE, trace=FALSE)
+arrange(varImp(final_nn), desc(Overall))
 
+final_gbm <- gbm(winner~., data=train, var.monotone=NULL, 
+                                       distribution = "bernoulli",
+                                       n.trees=1000, 
+                                       shrinkage=0.333, 
+                                       interaction.depth=2, 
+                                       bag.fraction = .5, 
+                                       n.minobsinnode = 2,
+                                       cv.folds=2)
 
-
-
+yhat <- function(X.model, newdata) as.numeric(predict(X.model, newdata, type="raw"))
+par(mfrow=c(2,4))
+for (j in 1:7)  {
+  ALEPlot(as.data.frame(train[,-1]), final_nn, pred.fun=yhat, J=j, K=50, NA.plot = TRUE)
+}
 
 
 
