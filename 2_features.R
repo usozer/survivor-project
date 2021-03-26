@@ -103,5 +103,3 @@ finalists <- left_join(finalists, jurycomp, by=c("season", "original_tribe")) %>
 finalists$prevtribe_jury <- replace_na(finalists$prevtribe_jury, 0)
 
 
-
-

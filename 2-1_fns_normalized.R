@@ -6,6 +6,7 @@ library(usedist)
 source("1_cleaning.R")
 source("0_enddates.R")
 
+# Main dataframe
 df <- s %>% 
   select(sid, castaway, season, season_name, age, day, order, result,
          original_tribe, immunity_idols_won, jury, ftc, appearance, returning) %>% 
@@ -15,6 +16,7 @@ df <- s %>%
          .after=order) %>% 
   ungroup()
 
+# Normalized dataset
 survivors <- s %>% 
   mutate(age = (age-mean(age))/sd(age)) %>% 
   select(sid, castaway, season, season_name, age, day, order, result,
@@ -64,7 +66,7 @@ finalists$jury_simil[19:90] = apply(finalists[19:90,],1, function(x) calcJurySim
 finalists$jury_simil[94:105] = apply(finalists[94:105,],1, function(x) calcJurySimil(x[3], x[2]))
 
 
-####
+#### Manual imputation for season 36
 seasonno =36
 p <- getSeasonSummary(seasonno) %>% 
   as.matrix()
@@ -84,10 +86,7 @@ clean_votes(vh) %>%
   group_by(season, castaway) %>% 
   summarise(rightside=sum(matched)/n())
 
-# perc. of former first-tribe members in jury
-# votes received
-# time of final tribal
-# 
+###########
 
 jurycomp <- s %>% 
   filter(jury == 1) %>%

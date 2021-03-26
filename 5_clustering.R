@@ -1,13 +1,14 @@
 library(cluster)
 
-source("2-1_fns_normalized.R")
+#source("2-1_fns_normalized.R")
 
+# Make a matrix
 mat <- df_norm %>% 
   select(age, necklaces, appearance, 
          jury_simil, prevtribe_jury, majorityvote) %>% 
   as.matrix()
 
-
+# Choosing the cluster solution with highest F
 F = double(9) 
 SSE = double(9) 
 si = double(9)
@@ -39,7 +40,24 @@ df_norm %>%
   summarise(winrate=sum(winner)/n())
 
 
-factors = princomp(mat)
+df_norm %>% 
+  mutate(cluster = kfit$cluster) %>% 
+  group_by(season) %>% 
+  summarise(howmany=n_distinct(cluster),
+            finalists=n()) %>%
+  ungroup() %>% 
+  mutate(final_tribal=case_when(howmany==1 ~ "All same",
+                                howmany==finalists ~ "All different",
+                                howmany==2 & finalists==3 ~ "One different (F3)")) %>%
+  group_by(final_tribal) %>%
+  summarise(count=n())
+  
+df_norm %>% 
+  mutate(cluster = kfit$cluster) %>% 
+  group_by(cluster) %>% 
+  summarise(mean_season=mean(season))
+
+
 
 df_norm %>% 
   mutate(fc1 = factors$scores[,1],

@@ -8,7 +8,6 @@ library(ALEPlot)
 setwd("~/SurvivorPred")
 source("2-1_fns_normalized.R")
 
-
 generateWinner <- function(seasonno, fit, type, ...) {
   p<- df_norm %>% 
     filter(season == seasonno) %>% 
@@ -128,7 +127,8 @@ for (k in 1:40) {
 } #end of k loop
 
 df_norm <- df_norm %>% 
-  mutate(predicted=c(yhat))
+  mutate(predicted=c(yhat),
+         correct=as.numeric(predicted==winner))
 
 
 #############################################################
