@@ -20,8 +20,8 @@ library(ALEPlot)
 library(caret)
 library(plot3D)
 
-source("2-1_fns_normalized.R")
-source("5_clustering.R")
+source("code/2-1_fns_normalized.R")
+source("code/5_clustering.R")
 ```
 
 ![](images/titlepic.jpg)
@@ -31,6 +31,8 @@ source("5_clustering.R")
 As I was winding down after the finals week watching *Survivor: Africa*, which marks the 22nd season I have seen of the reality TV competition series Survivor, I was once again theorizing about who among the cast was going to make it to the top this time around. As a fan of this show, I get very invested in trying to figure out the logic that underlies the personal relationships and strategic moves in the game, all for the sole purpose of making it to the end and getting a shot at winning the $1 million cash prize.
 
 The reason why I love this show so much is that the game environment exposes so much about our psyche, and as with anything involving human psychology, what happens in the game is always so unpredictable. My personal goal embarking on this project was to determine what among the laundry list of "good qualities" of a winner are most influential in snatching the title at the end.
+
+All code for this project could be found [**here**](https://github.com/usozer/survivor-project). 
 
 # I. *Survivor US*
 

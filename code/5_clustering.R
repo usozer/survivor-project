@@ -57,7 +57,7 @@ df_norm %>%
   group_by(cluster) %>% 
   summarise(mean_season=mean(season))
 
-
+factors = princomp(mat)
 
 df_norm %>% 
   mutate(fc1 = factors$scores[,1],

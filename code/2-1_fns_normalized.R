@@ -2,9 +2,11 @@ library(tidyverse)
 library(survivoR)
 library(lubridate)
 library(usedist)
+library(here)
 
-source("1_cleaning.R")
-source("0_enddates.R")
+
+source(here::here("code/1_cleaning.R"))
+source(here::here("code/0_enddates.R"))
 
 # Main dataframe
 df <- s %>% 
