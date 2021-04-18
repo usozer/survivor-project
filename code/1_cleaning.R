@@ -1,34 +1,34 @@
-devtools::install_github("doehm/survivoR")
+# devtools::install_github("doehm/survivoR")
 
 library(tidyverse)
 library(survivoR)
 
-s <- castaways  %>% 
-  group_by(castaway, season) %>% 
+s <- castaways  %>%
+  group_by(castaway, season) %>%
   filter(day==max(day)) %>% # In case of vote out & comebacks, keep last one
   ungroup() %>%
   arrange(season) %>%
   mutate(sid=row_number()) %>% # assign unique ID to each Survivor appearance
-  group_by(full_name) %>% 
+  group_by(full_name) %>%
   mutate(appearance=row_number(),
          returning=if_else(appearance>1, 1, 0)) %>% # how many appearances, if they were a returning player that season
-  ungroup() %>% 
-  mutate(jury=as.numeric(!is.na(jury_status)), 
+  ungroup() %>%
+  mutate(jury=as.numeric(!is.na(jury_status)),
          ftc=as.numeric(result %in%
            c("Sole Survivor","Runner-up","2nd runner-up","Co-runner-up","2nd Runner-up")),
          .after=jury_status)
 
-# Identify "unusual" non-returns, 
-# i.e. in a returning player season, original tribes have 100% 
+# Identify "unusual" non-returns,
+# i.e. in a returning player season, original tribes have 100%
 # return player ratio.
 # Happens when castaways go under name changes
 s %>%
-  group_by(original_tribe) %>% 
-  summarise(perc=sum(returning)/n()) %>% 
-  arrange(desc(perc)) %>% 
-  filter(perc !=1) 
+  group_by(original_tribe) %>%
+  summarise(perc=sum(returning)/n()) %>%
+  arrange(desc(perc)) %>%
+  filter(perc !=1)
 
-s %>% 
+s %>%
   select(sid, season, full_name, castaway, day,
          order, result, original_tribe, returning, appearance) %>%
   filter(original_tribe %in% c("Galang", "Malakal", "Dakal"))

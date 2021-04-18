@@ -1,8 +1,12 @@
 ---
 title: "Making of a Sole Survivor"
 author: "Uygar Sozer"
-date: "3/26/2021"
-output: pdf_document
+date: "4/18/2021"
+output:
+  word_document: default
+  pdf_document: default
+  html_document:
+    df_print: paged
 ---
 
 ```{r setup, include=FALSE}
@@ -26,9 +30,12 @@ source("code/5_clustering.R")
 
 ![](images/titlepic.jpg)
 
+Figure 1: Three tribes of Season 28 getting ready for a challenge
+
+
 # Motivation
 
-As I was winding down after the finals week watching *Survivor: Africa*, which marks the 22nd season I have seen of the reality TV competition series Survivor, I was once again theorizing about who among the cast was going to make it to the top this time around. As a fan of this show, I get very invested in trying to figure out the logic that underlies the personal relationships and strategic moves in the game, all for the sole purpose of making it to the end and getting a shot at winning the $1 million cash prize.
+As I was winding down after the finals week watching *Survivor: Africa*, which marked the 22nd season I have seen of the reality TV competition series Survivor, I was once again theorizing about who among the cast was going to make it to the top this time around. As a fan of this show, I get very invested in trying to figure out the logic that underlies the personal relationships and strategic moves in the game, all for the sole purpose of making it to the end and getting a shot at winning the $1 million cash prize.
 
 The reason why I love this show so much is that the game environment exposes so much about our psyche, and as with anything involving human psychology, what happens in the game is always so unpredictable. My personal goal embarking on this project was to determine what among the laundry list of "good qualities" of a winner are most influential in snatching the title at the end.
 
@@ -36,26 +43,34 @@ All code for this project could be found [**here**](https://github.com/usozer/su
 
 # I. *Survivor US*
 
-Survivor is a popular show and it's easy to understand why. The rules of the game are very simple, it's a proven formula, and it keeps the fans of the show coming back for more. As with any other TV series finishing up their 40th season, there are only a handful aspects of the game left that show producers haven't tried to tinker with over the course of the last 20 years to keep things fresh. But the base rules are the same.
+[Survivor](https://www.cbs.com/shows/survivor/) is a popular show and it's easy to understand why. The rules of the game are very simple, it's a proven formula, and it keeps the fans of the show coming back for more. As with any other TV series finishing up their 40th season, there are only a handful aspects of the game left that show producers haven't tried to tinker with over the course of the last 20 years to keep things fresh. But the base rules are the same.
 
-16 to 20 castaways are placed in a remote location and divided up into tribes. The goal? Making it to the end of the 39 days of the game without getting voted off, whether that is through winning immunity challenges to keep you safe from votes, or forging alliances to vote with, not against, you. At the end of the 39 days, only 3 (or 2) survivors stand to make their case to the jury as to why they should claim the title of sole survivor and the $1 million prize. This is where it gets interesting. The jury is 7-10 castaways that were most recently voted out of the tribe. So your job as a finalist now is to convince the people you had a hand in voting out why they should write you in as their winner.
+16 to 20 castaways are placed in a remote location and divided up into tribes. Every three days, tribes compete at immunity challenges. The loser tribe goes to tribal council and votes somebody off. At around mid-point, tribal divisions are no longer, and all castaways merge to live on one camp. Immunity challenges are now individual, and the goal is to make it through all tribal councils to have a seat at the final 2 or final 3 on day 39. Now, the last standing castaways try to convince the jury, consisting of the last 7 to 10 players to be voted out of the game, to gain their votes. The finalist who gets the most jury votes wins the title of Sole Survivor and the $1 million cash prize that goes with it.
+
 
 ```{r, out.width = "320px", echo=FALSE, eval=TRUE, fig.align='center'}
 knitr::include_graphics("images/kaohrongftc.png")
 ```
 
+Figure 2: Final tribal council of Season 32
 
-In this project I decided to solely focus on the finalists of the game, the two or three survivors standing at the end with different (or similar) styles of game play. When the power shifts to the jury, what are the qualities of a finalist that helps or hinders them in their pursuit of winning the game? Is it possible to quantify aspects of how these finalists played the game that would allow me to objectively compare them to each other, regardless of what season they come from?
+Over the course of the show, tons of archetypes of players emerged. Some are better at individual immunity challenges, and some place their trust in a small alliance they forge. Some rely on a social game, some choose to play strictly strategical. All the while, show producers are throwing every turn and twist they can think of at the contestants. Dodging all the obstacles to make it to the final is difficult, regardless of the season. Season 13 winner Yul Kwon explains it best; this game is about "maximizing the good luck, and mitigating the bad luck." 
+
+
+In this project I decided to solely focus on the finalists of the game, the two or three survivors standing at the end with different (or similar) styles of game play. I will try to answer mainly these two questions:
+
+1) What are the quantitative measures that can describe how a finalist played the game?
+2) At the final, which few of those measures can predict who the winner is going to be?
 
 # II. Descriptive statistics, feature engineering
 
-Data was obtained from ```survivoR``` package in R, available at the public Github repo [**doehm/survivoR**](https://github.com/doehm/survivoR).
+Data was obtained from ```survivoR``` package in R, available at the public Github repo [**doehm/survivoR**](https://github.com/doehm/survivoR). The main dataset I used was the `castaways` dataset, which included a row for each contestant and some basic information about them like age, placement in the season, challenge wins etc. The other important dataset was `voting_history` which detailed every vote cast at tribal councils throughout each season.
 
-Feature selection was a crucial part of deciding what my approach was going to be. [**An exciting example**](http://seanfalconer.blogspot.com/2017/09/crowdsourcing-survivor-data.html) from 2017 attempts to encode each castaway by "behavioral vectors" to predict the winner, and focuses on the entirety of the season cast. For my case, I wasn't fully comfortable with manual data imputation. 
+Feature selection was a crucial part of deciding what my approach was going to be. [**An exciting example**](http://seanfalconer.blogspot.com/2017/09/crowdsourcing-survivor-data.html) from 2017 attempts to encode each castaway by "behavioral vectors" to predict the winner, and focuses on the entirety of the season cast. 
 
-First of all, interpretation of behavior and emotions is very subjective, e.g. I might think a castaway was particularly "lazy" and "boastful" on an episode, while another person could watch the same episode and come up with the opposite conclusions. Second, the way castaways are depicted are highly dependent on the editing of the show. Portrayal of the eventual winner vs. an early exit are ultimately decisions from the post-production edit suite. If we were to interpret behavior through the lens that the show producers provide us, our independent variables are most likely going to be not so independent. So, I decided that it was best if I kept to the objective truth only.
+Objective judgment of behavior and emotions is difficult if not impossible. I might think a castaway was particularly "lazy" and "boastful" on an episode, while another person could watch the same episode and come up with the opposite conclusions. Also, the way castaways are depicted are highly dependent on the editing of the show. Portrayal of the eventual winner vs. an early exit are ultimately decisions from the post-production edit suite. If we were to interpret behavior through the lens that the show producers provide us, our independent variables are most likely going to be not so independent.
 
-Finally, I kept my analysis for the finalists only. It is no secret among Survivor fans and former castaways that *luck* perhaps plays a larger role in people making it to the final than we would have liked. Thus, it is almost a "clean slate" approach to just focus on the final tribal council; castaways make it to the end one way or another and we just take that as our starting point.
+To answer the two questions I outlined earlier, I decided to go with show-historical data (i.e. challenges won, votes cast, age, tribe composition etc.) rather than the subjective approach, and created variables as described in the next section.
 
 ## Primary features
 
@@ -63,7 +78,7 @@ Here are the primary features that I considered:
 
 * **Age**: Instead of using raw age, I took Z-scores of ages within each season. So it would be more accurately called 'relative age within season'.
 
-* **Immunity idols won** (`necklaces`): This was one of the variables I was personally curious about, because there have been winners that were very dominant in the challenges and won lots of immunity idols, but many winners famously have won without getting a single immunity idol (one particular castaway managed it twice).
+* **Immunity idols won** (`necklaces`): This was one of the variables I was personally curious about, because there have been winners that were very dominant in the challenges and won lots of immunity idols, but many winners famously have won without getting a single immunity idol (one particular castaway managed it twice). "Necklace" is just a synonym for individual immunity idol here (as they are usually referred to as on the show).
 
 
 ```{r eval=TRUE, echo=FALSE}
@@ -78,13 +93,15 @@ theme(legend.position = "none"),
   
 ggplot(df, aes(immunity_idols_won)) + geom_density(aes(fill = relevance),
                                            position="dodge") + 
-labs(title = "Unequal idol distribution") +
+labs(title = "Finalists had more idols") +
 theme(legend.position = c(0.8, 0.8)) + labs(fill=NULL),
 
 ncol=2)
 ```
 
-The age distribution is identical for finalists and jury, but the distribution of the immunity idols suggest that most finalists have won the idol at least once, whereas majority of the jury members never had. 
+Figure 3: Age and idol distribution
+
+The age distribution is identical for finalists and jury, but the distribution of the immunity idols suggest that most finalists have won the idol at least once, whereas majority of the jury members never had. This type of model-free evidence might not mean much, but as a viewer it made sense to me: players who win challenges are generally more adept at the game, but also finalists participate in more challenges simply by the virtue of making it through the full 39 days, so they have more opportunities to win than the jury. Age doesn't seem to be so influential here.
 
 * **Appearance**: Many previous contestants return to play other seasons, and being a returning player might influence jury's decision to award you with the title, depending on if they view it positively or not. Especially in season where half of the cast is new and half has played before, previous experience, both in survival and in social situations, could also be another factor that affects the game in a major way.
 
@@ -95,7 +112,7 @@ The age distribution is identical for finalists and jury, but the distribution o
 
 * **Original tribe representation** (`prevtribe_jury`): This feature looks at the importance of day 1 bonds; it is the percentage of jury members who were in the same tribe as the finalist. In season 1 of Survivor, after the tribe merger happened, the former Tagi tribe fully eliminated the opposing Pagong tribe to become the final 5 standing. This the first instance (duh) of what fans now call "Pagonging". In a Pagonged season, all finalists will have the same number for this variable, since they come from the same tribe. But what happens when oppposing tribe members make it to the end?
 
-The next two features incorporate finalists' voting histories. `survivoR` package also has a voting history table, through which I was able to extract a matrix of "vote vectors" for each jury member and finalist per each season. 
+The next two features incorporate finalists' voting histories. Using the voting history table included in the `survivoR` package, through which I was able to extract a matrix of "vote vectors" for each jury member and finalist per each season. 
 
 Here is what these matrices look like for episodes 8 through 14 of season 6: The Amazon for the two finalists, Jenna and Matthew.
 
@@ -109,15 +126,19 @@ jury <- survivors %>% filter(season==seasonno, jury==1) %>% pull(castaway)
 final <- survivors %>% filter(season==seasonno, ftc==1) %>% pull(castaway)
 ```
 
-```{r}
+```{r, include=TRUE}
 knitr::kable(p[final,8:14], "latex")
 ```
 
+Table 1.1: Votes cast by the finalists in Season 6
+
 We have the same table for the jury members as well.
 
-```{r}
+```{r, include=TRUE}
 knitr::kable(p[jury,8:14], "latex")
 ```
+
+Table 1.2: Votes cast by the jury in Season 6
 
 The following features compare the finalists with the jury matrix in two different ways.
 
@@ -125,13 +146,11 @@ The following features compare the finalists with the jury matrix in two differe
 
 * **Majority vote percentage** (`majorityvote`): The idea for this variable came from the final trouble council at Season 33 when a finalist was asked by a jury member how many times she was a part of the majority vote. How I interpret this is that if your vote belonged to the majority's most of the time, then you likely had a good grasp of the game, command over tribe mates and successful alliance management. How does the jury value being the dominant force vs. the underdog?
 
-\newpage
-
 # III. Clustering
 
 Just for the fun of it, since I have all this normalized data now, I decided to see if I can come up with a cluster solution that could help me gain some insight as to how I can group these finalists together.
 
-I used k-means clustering algorithm and chose the number of clusters according to the highest pseudo-$F$ statistic, which occurred at $K=4$.
+I used [k-means clustering](https://towardsdatascience.com/understanding-k-means-clustering-in-machine-learning-6a6e67336aa1) algorithm and chose the number of clusters according to the highest [pseudo-$F$](https://stats.stackexchange.com/questions/79097/validity-index-pseudo-f-for-k-means-clustering) statistic, which occurred at $K=4$.
 
 ```{r}
 set.seed(123)
@@ -145,6 +164,8 @@ kfit <- kmeans(mat, 4, nstart=100, iter.max = 100)
 plot.kmeans(kfit)
 ```
 
+Figure 4: Profiling the clusters
+
 Here's my attempt at profiling each of these clusters.
 
 1. This is a cluster of young finalists who came to the final collecting tons of individual immunities. Example: Kelly from Borneo, Fabio from Nicaragua
@@ -155,7 +176,7 @@ Here's my attempt at profiling each of these clusters.
 
 4. Older returning players who made tons of big moves against the majority and voted against most of the jury members. Example: Russell & Parvati from Heroes v Villains
 
-```{r, eval=TRUE, echo=FALSE}
+```{r, eval=TRUE, echo=FALSE, include=TRUE}
 df_norm %>% 
   mutate(cluster = kfit$cluster,
          winner=as.numeric(winner)) %>% 
@@ -165,13 +186,15 @@ df_norm %>%
   knitr::kable(format="latex")
 ```
 
+Table 2.1: Summary statistics from the cluster solution
+
 Surprisingly, or unsurprisingly, real life data says clusters 1 and 3 became more successful in their quest to win the show. It is interesting that these two clusters have the highest and the lowest mean of individual immunities won, respectively.
 
 Another interesting statistic to look at is the "mean season number" for each of the clusters, which could serve as an estimation to which player type is more old school vs. modern. Older returning players at cluster 4 is the "most recent" type, whereas we do not run into players like the ones that belong to cluster 2 as much anymore.
 
 One other immediate question that popped into my head was how often do the 2 or 3 finalists of each season end up belonging to the same cluster.
 
-```{r}
+```{r, echo=FALSE, eval=TRUE,include=TRUE}
 df_norm %>% 
   mutate(cluster = kfit$cluster) %>% 
   group_by(season) %>% 
@@ -186,9 +209,11 @@ df_norm %>%
   knitr::kable(format="latex")
 ```
 
+Table 2.2: Final 2/3 composition by clusters
+
 Out of 40 seasons of the show, only 9 seasons featured a final 2 or 3 of the same cluster. Neat! An indication that finalists usually do have different strategies from each other.
 
-Just to test the validity of my solution, I did dimensionality reduction through PCA, plotted the PC-scores and individually colored the clusters. Think of these coordinates as representing everybody by some "distilled score" of 3 numbers, each representing a different aspect of their data. These scores are centered at 0, so 0 means average.
+Just to test the validity of my solution, I did [dimensionality reduction](https://medium.com/@ashwin8april/dimensionality-reduction-and-visualization-using-pca-principal-component-analysis-8489b46c2ae0) through PCA, plotted the PC-scores and individually colored the clusters. Think of these coordinates as representing everybody by some "distilled score" of 3 numbers, each representing a different aspect of their data. These scores are centered at 0, so 0 means average.
 
 ```{r, eval=TRUE, echo=FALSE}
 
@@ -212,6 +237,8 @@ ncol=2)
 
 cluster_df <- cbind(factors$scores[,1:3], cluster=kfit$cluster)
 ```
+
+Figure 5: Visualizing the clusters
 
 
 ```{r}
@@ -238,6 +265,8 @@ scatter3D(x = cluster_df[,1],
           phi=20)
 ```
 
+Figure 6: 3D visualization of the clusters
+
 2D plots are kind of like looking at two different sides of a cube, and then the 3D plots offer another perspective. Clusters 3 and 4 (in blue and purple) are well-clustered, while 1 and 2 appear highly variable.
 
 It could be interesting to include clusters we found in the predictive model, but for now I'll trust that any information we glean from the cluster solution is already included in the raw data. Now, onto the exciting stuff.
@@ -248,7 +277,7 @@ All statistical learning models were selected and tuned through *n*-fold cross v
 
 I considered various models but eventually landed on a neural network with logistic outputs. I ran into issues with nonlinear models like boosted trees and k-nearest neighbors where the model was yielding equal win probabilities and hence predicting multiple winners per season. Neural network predictions did not have the same issue. I used the `nnet` package to fit the model.
 
-Now, what can we learn from it? We can look at relative feature importance to see which variables have the largest contribution in predictions. I'll use `caret` package, which uses Recursive Feature Elimination (RFE) to determine the importance measures.
+Now, what can we learn from it? We can look at relative feature importance to see which variables have the largest contribution in predictions. I'll use `caret` package, which uses [Recursive Feature Elimination (RFE)](https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.RFE.html) to determine the importance measures.
 
 
 ```{r, echo=FALSE, eval=TRUE}
@@ -261,7 +290,8 @@ final_nn <- nnet(winner~., size=2, data=train,
 knitr::kable(arrange(varImp(final_nn), desc(Overall)), "latex")
 ```
 
-\newpage
+Table 3: Variable importance measure from the neural network model
+
 
 And we can also use partial dependence plots (I use ALE plots here) to see the isolated effects of each variable.
 
@@ -273,6 +303,8 @@ for (j in 1:7)  {
 }
 ```
 
+Figure 7: Individual contribution of each variable to winning likelihood
+
 It is slightly annoying to interpret the variables since the scales are normalized, but we can look at the curve to provide some explanations.
 
 * **Age** follows a roughly linear trajectory, meaning younger finalists are more likely to win the show. 
@@ -283,11 +315,11 @@ It is slightly annoying to interpret the variables since the scales are normaliz
 
 * **Appearance** didn't appear to be one of the more important variables, and it is most likely heavily influenced by one particular data point for Season 22 when Rob "Boston Rob" Mariano won Survivor on his 4th try.
 
-\newpage
-
 # V. Bootstrap estimates
 
-Now that I have my model tuned, I can repeat this a bunch of times! For each season, I will generate 10000 predictions of who the winner is going to be, with a model trained on a resampling with replacement of the 39 other seasons. That is a whopping 400,000 neural networks fit! Thankfully I was able to set up this code to run on the MSiA servers overnight.
+Now that I have my model tuned, I can repeat this a bunch of times! [*Bootstrapping*](https://machinelearningmastery.com/a-gentle-introduction-to-the-bootstrap-method/) essentially just means that I shuffled the datapoints to re-fit the model many many times, and aggregating predictions from each model.
+
+For each season, I generated 10000 predictions of who the winner is going to be, with a model trained on a resampling with replacement of the 39 other seasons. That is a whopping 400,000 neural networks fit! Thankfully I was able to set up this code to run on the MSiA servers overnight.
 
 Winner                 Season                   Predicted%
 ----------------   -----------------------   ----------------
@@ -298,6 +330,8 @@ Sandra Diaz-Twine     7: Pearl Islands          82.0
 J.T. Thomas           18: The Tocantins         79.9
 -----------------   -----------------------   ----------------
 
+Table 4.1: Highest prediction rates for actual winners
+
 
 Winner                 Season                               Predicted%
 ----------------   ---------------------------------   ----------------
@@ -307,6 +341,8 @@ Tony Vlachos        28: Cagayan                           12.7
 Bob Crowley         17: Gabon                           13.3
 Richard Hatch       1: Borneo                           14.1
 -----------------   -------------------------------   ----------------
+
+Table 4.2: Lowest prediction rates for actual winners
 
 How should we interpret these results? The way I look at it is, since the predictions for each season are done using a model trained on the other 39, a high `predicted%` indicates that the way the finalist played "a textbook game". The model says Chris from Vanuatu or Ethan from Africa had a gamestyle possibly similar to those we saw before, and the previous contestants that played like they did usually won.
 
@@ -323,6 +359,8 @@ Sugar Kiper                   17: Gabon                            83.9
 Colby Donaldson               2: The Australian Outback            76.2
 ---------------------   ----------------------------------   ----------------
 
+Table 4.3: Highest (false) prediction rates for finalists who did not win
+
 The model says these shoo-ins could not convince the jury. Kelly and Colby came to the end with lots of immunity idols won along the way, but they lost. For Spencer and Woo, it is hard to tell. Woo was likely favored due to the fact that he was in the majority vote most of the time, and Spencer was relatively young at 23 when he played in *Season 31: Cambodia - Second Chance*, a returning player season with most contestants in their 30s and 40s.
 
 
@@ -330,6 +368,21 @@ The model says these shoo-ins could not convince the jury. Kelly and Colby came 
 
 This exercise was less about building the best predictive model to help me hit the jackpot at `bets.com` for season 41, and more about coming to understand various intricacies of gameplay and strategy within the realm of my favorite TV show. Normally, I don't care much to interpret what a statistical model predicts a historical datapoint, but in the case of this particular dataset, one datapoint is a 13-episode season with story arcs, big personalities and iconic challenges, so reviewing the output of my n-fold cross validation was actually enjoyable for once. I feel like I gained some understanding as to what some past winners had to set them apart from the rest, and how each of these winners fit in (and not fit in) with each other.
 
+How well did I do in the two questions I set out to answer? Since there were no previous analysis efforts (as far as I could search on the Internet), feature engineering & selection was difficult. But I think just by trial-and-error in things like choosing an appropriate distance measure metric to see finalist voting history similarity to the jury taught me a lot about data integrity and dangers of boiling an entire season's worth of effort to a number. As far as trying to understand how each of my variables come in to play, I was not entirely thrilled with a rather low correct classification rate of my model, but it gave me some interesting insight on how age and immunity idols in particular affect finalists' chances of winning.
+
 Two big missing variables for me here are race and gender. In my personal opinion, demographics undoubtedly play a huge role in the personal relationships that the castaways form, just like in real life. I would love to repeat the analysis in the future with some demographic data as well to see if it improves the correct classification rate at all.
 
 In any case, you can find me watching Survivor in my Engelhart apartment until I finish all 40 seasons.
+
+# References
+
+* https://machinelearningmastery.com/a-gentle-introduction-to-the-bootstrap-method/
+* https://medium.com/@ashwin8april/dimensionality-reduction-and-visualization-using-pca-principal-component-analysis-8489b46c2ae0
+
+* https://www.cbs.com/shows/survivor/
+
+* https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.RFE.html
+
+* https://towardsdatascience.com/understanding-k-means-clustering-in-machine-learning-6a6e67336aa1
+
+* https://stats.stackexchange.com/questions/79097/validity-index-pseudo-f-for-k-means-clustering
