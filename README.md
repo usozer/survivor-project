@@ -2,6 +2,10 @@
 
 ![](images/titlepic.jpg)
 
+Full article can be found at https://sites.northwestern.edu/msia/2021/04/30/making-of-a-sole-survivor/.
+
+***
+
 Survivor is a popular show and it's easy to see why. The rules of the game are very simple, it's a proven formula, and it keeps the fans of the show coming back for more. As with any other TV series finishing up their 40th season, there are only a handful aspects of the game left that show producers haven't tried to tinker with over the course of the last 20 years to keep things fresh. But the base rules are the same.
 
 16 to 20 castaways are placed in a remote location and divided up into tribes. The goal? Making it to the end of the 39 days of the game without getting voted off, whether that is through winning immunity challenges to keep you safe from votes, or forging alliances to vote with, not against, you. At the end of the 39 days, only 3 (or 2) survivors stand to make their case to the jury as to why they should claim the title of sole survivor and the $1 million prize. This is where it gets interesting. The jury is 7-10 castaways that were most recently voted out of the tribe. So your job as a finalist now is to convince the people you had a hand in voting out why they should write you in as their winner.
